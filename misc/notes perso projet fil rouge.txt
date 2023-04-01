@@ -1,0 +1,53 @@
+-est ce qu'il y a un magasin de vente physique, est-ce que la vente principale est 
+en physique... vu que la livraison se fait en très local, mettre en avant la boutique
+physique est peut etre une bonne idée :
+-du coup, permettre un site évoluable si le business en ligne se développe par exemple 
+est-ce possible ? si oui, comment ?
+-on met notre site sur github ? oui...
+-trello
+-loterie : un essai par commande pendant deux semaines (dates exactes ?)
+-"particularité de pouvoir fournir des fleurs à l’unité" = quid des bouquets, composés 
+à partir des commandes clients ? est-ce qu'il s'agit uniquement 
+des éléments présentés dans l'annexe ? bref : besoin de plus de détails sur les fleurs
+et comment elles sont vendues.
+
+
+
+- fleurs à l'unité
+- ruptures de stock
+- livraison locale, gratuite à partir de 50€, en 1 jour ou programmée
+
+- recherches par couleurs ou catégories :
+nav =
+- remerciements, naissance, mariage, amour et sentiments, anniversaire
++ tout voir
+
+ds chaque page : tri par couleur
+
+arbo :
+toutes nos fleurs
+fleurs à l'unité
+roses
+occasions :
+ - occasion 1
+ - occasion 2
+ - etc
+compte client
+panier
+favoris
+
+carrousel :
+fête des meres/evenement saisonnier
+bouquet surprise fleurs fraiches
+bienvenue sur le site de Lafleur > horaires et site boutique
+
+
+
+manque barre de recherche
+
+
+QUESTION : fleurs à l'unité =  une fleur commandée, ou plusieurs unités de fleurs possible ?
+composer son propre bouquet ?
+
+
+http://organisatrice-de-souvenirs.fr/quelle-quantite-de-roses-pour-declarer-mon-amour/
