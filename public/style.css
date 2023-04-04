@@ -1,0 +1,432 @@
+:root {
+  --lafleur-light: #efc7c7;
+  --lafleur-dark: #8b3737;
+  --lafleur-red: #b40000;
+  --header-light-pink: #fee5e5;
+  --bcg-light: #FBF5EE;
+  --text: "Quicksand", "Helvetica";
+  --headings: "Lancelot", "Helvetica";
+  --text-size-mobile: 0.8rem;
+  --text-size-desktop: 3rem;
+  --heading-size-mobile: 2rem;
+  --heading-size-desktop: 3rem;
+}
+
+body {
+  width: 100svw;
+  font-family: var(--text);
+  background-color: var(--bcg-light);
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 3px 15px rgba(163, 163, 163, 0.124);
+  background-color: white;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  margin-bottom: 4rem;
+}
+
+.nav-links a {
+  height: 50px;
+  margin: 0 15px;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  padding: 0 0px;
+}
+
+.nav-links li:hover a,
+.nav-links li:hover,
+.nav-links a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links li:hover {
+  background-color: var(--lafleur-dark);
+}
+
+/* desktop version */
+/* header */
+.store-info {
+  width: 100%;
+  height: 2rem;
+  background-color: var(--lafleur-dark);
+  color: white;
+  font-size: var(--text-size-mobile);
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+}
+
+.logo-desktop {
+  width: 100svw;
+  display: grid;
+  place-items: center;
+  background-color: var(--header-light-pink);
+  padding: 35px 0;
+}
+
+.logo-desktop:hover {
+  text-decoration: none;
+}
+
+.name-logo {
+  color: var(--lafleur-red);
+  font-family: var(--headings);
+  font-size: 4rem;
+}
+
+.city {
+  font-size: 1.2rem;
+}
+
+.nav-container {
+  width: 1024px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.close,
+#openBtn {
+  display: none;
+}
+
+.logo-mobile {
+  display: none;
+}
+
+.logo {
+  width: 115px;
+}
+
+.city {
+  line-height: 0.2rem;
+  font-weight: bolder;
+}
+
+/* nav desktop */
+nav .customer-links {
+  display: flex;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+}
+
+.customer-links li {
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+/***************************************************************
+/***************************************************************
+/* MAIN */
+/***************************************************************
+/***************************************************************/
+
+main {
+  width: 1024px;
+  margin: auto;
+}
+
+h2 { /*HEADINGS WITH WHITE BACKGROUND*/
+  width: 100%;
+  /* margin-bottom: 3rem; */
+  margin: auto;
+  margin-bottom: 3rem;
+  padding: .7rem 0;
+  font-family: var(--headings);
+  font-size: 2.2rem;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/***************************************************************
+/***************************************************************
+/* TERMS */
+/***************************************************************
+/***************************************************************/
+.us h3 {
+  font-family: var(--headings);
+  font-size: 2rem;
+  margin-bottom: 3.5rem;
+}
+
+.owners {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap:25px;
+  margin-bottom: 4rem;
+}
+
+.owners p {
+  line-height: 1.6rem;
+}
+
+.owners img {
+  max-width: 96%;
+}
+
+.owners p {
+  line-height: 2rem;
+}
+
+.us .find-us {
+  display: flex;
+  justify-content: space-between;
+  margin: 5rem 0 8rem 0;
+}
+
+.us .contact {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.us .contact div {
+  line-height: 1.5rem;
+}
+
+.us .contact h5 {
+  font-weight: bolder;
+}
+
+
+/***************************************************************
+/***************************************************************
+/* TERMS */
+/***************************************************************
+/***************************************************************/
+
+.terms {
+  display: grid;
+}
+
+
+.terms h4 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0;
+  color: var(--lafleur-dark);
+}
+
+.terms p {
+  margin: .5rem 0;
+}
+
+
+
+
+
+
+
+/***************************************************************
+/***************************************************************
+/* FOOTER */
+/***************************************************************
+/***************************************************************/
+footer {
+  width: 100svw;
+  display: grid;
+  padding: 35px 15px;
+  box-sizing: border-box;
+  margin-top: 5rem;
+}
+
+footer .container {
+  place-self: center;
+  width: 1024px;
+}
+
+footer, footer a {
+  background-color: var(--lafleur-dark);
+  color: var(--bcg-light);
+  text-decoration: none;
+}
+
+.footer-logo {
+  width: 10rem;
+}
+
+.recap {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.store-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.site-structure {
+  display: flex;
+  gap: 1rem;
+}
+
+footer a {
+  width: fit-content;
+}
+
+footer h4 {
+  font-weight: bolder;
+  margin-bottom: 3px;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.credits {
+  border-top: var(--bcg-light) 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  margin-top: 5rem;
+}
+
+.socials img {
+  height: 25px;
+  padding-left: 5px;
+}
+
+@media (max-width: 1025px) {
+  footer .container {
+    width: auto;
+  }
+
+}
+
+/* responsive mobiles */
+@media (max-width: 428px) {
+  .store-info {
+    height: 1.5rem;
+    font-size: .7rem;
+  }
+  /*burger menu*/
+  .close,
+  #openBtn {
+    display: block;
+  }
+  /* Sidenav menu */
+  .sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: -250px;
+    background-color: var(--lafleur-light);
+    padding-top: 60px;
+    transition: left 0.5s ease;
+  }
+
+  /* Sidenav menu links */
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidenav a:hover {
+    color: white;
+  }
+
+  .sidenav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidenav.active {
+    left: 0;
+  }
+
+  .sidenav .close {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+  }
+
+  .burger-icon span {
+    display: block;
+    width: 35px;
+    height: 3px;
+    background-color: black;
+    margin: 6px 0;
+    border-radius: 3px;
+  }
+
+  .logo-mobile {
+    display: grid;
+    place-items: center;
+  }
+
+  .name-logo.mobile {
+    font-size: 2.4rem;
+  }
+
+  .city.mobile {
+    font-size: .7rem;
+  }
+
+  .nav-container {
+    display: flex;
+    background-color: var(--header-light-pink);
+    padding: 15px 15px;
+  }
+
+  .logo-desktop {
+    display: none;
+  }
+
+  .nav-links {
+    flex-direction: column;
+  }
+
+  .customer-links li {
+    padding: 0;
+  }
+
+  .customer-links li:first-of-type {
+    padding-right: 10px;
+  }
+
+
+
+
+
+
+
+  /* FOOTER */
+}
