@@ -1,16 +1,18 @@
 <footer>
     <div class="container">
         <div class="recap">
-            <div class="store-contact">
+            <div class="store">
                 <img src="public/assets/logo-footer.svg" alt="Lafleur logo" class="footer-logo">
-                <h4>04 90 22 13 84</h4>
-                <div>
-                    <p>6, rue Henri de Savornin</p>
-                    <p>84160 Lourmarin</p>
-                </div>
-                <div>
-                    <h4>Du mardi au samedi</h4>
-                    <h4>de 10h à 18h</h4>
+                <div class="store-contact">
+                    <h4>04 90 22 13 84</h4>
+                    <div>
+                        <p>6, rue Henri de Savornin</p>
+                        <p>84160 Lourmarin</p>
+                    </div>
+                    <div>
+                        <h4>Du mardi au samedi</h4>
+                        <h4>de 10h à 18h</h4>
+                    </div>
                 </div>
             </div>
             <div class="site-structure">

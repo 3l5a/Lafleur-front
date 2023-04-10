@@ -32,7 +32,13 @@
             </div>
             <ul class="customer-links">
                 <li>
-                    <img src="public/assets/customer-icon.svg" alt="accès compte" title="accès compte" />
+                    <?php
+                    if (!empty($clientSession)) {//client est connecté :
+                    ?><a href="index.php?uc=account"> <?php
+                    } else { //client n'est pas connecté :
+                    ?><a href="index.php?uc=isRegistered"><?php
+                    }?>
+                        <img src="public/assets/customer-icon.svg" alt="accès compte" title="accès compte" /></a>
                 </li>
                 <li>
                     <img src="public/assets/basket-icon.svg" alt="accès compte" title="accès panier" />

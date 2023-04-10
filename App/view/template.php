@@ -28,7 +28,21 @@ Prototype de Lord Of Geek (LOG)
             include 'App/view/v_home.php';
             break;
         case 'all':
-            include 'App/view/v_products.php';
+            include 'App/view/v_all.php';
+            break;
+        case 'product':
+            include 'App/view/v_showproduct.php';
+            break;
+
+            //customer account management
+        case 'isRegistered':
+            include 'App/view/v_is_registered.php';
+            break;
+        case 'logup':
+            include 'App/view/v_logup.php';
+            break;
+        case 'login':
+            include 'App/view/v_login.php';
             break;
         case 'account':
             include 'App/view/v_account.php';
@@ -36,12 +50,15 @@ Prototype de Lord Of Geek (LOG)
         case 'cart':
             include 'App/view/v_cart.php';
             break;
+
+            //misc
         case 'us':
             include 'App/view/v_us.php';
             break;
         case 'terms':
             include 'App/view/v_terms.php';
             break;
+
         default:
             break;
     }
