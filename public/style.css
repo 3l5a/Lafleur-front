@@ -298,6 +298,27 @@ h2 {
 /***************************************************************
 /***************************************************************/
 
+div.log {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.log h3 {
+  font-family: var(--headings);
+  font-size: 2rem;
+}
+
+.log label {
+  font-weight: 800;
+}
+
+.log form {
+  display: flex;
+  flex-direction: column;
+}
+
+
 
 
 /***************************************************************
