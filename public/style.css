@@ -299,27 +299,65 @@ h2 {
 /***************************************************************/
 
 div.log {
-  background-color: white;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  margin: auto;
+  padding: 2rem 4rem 2rem 4rem;
+  width: 50%;
+  background-color: white;
 }
 
 .log h3 {
+  width: 80%;
+  padding-top: 2rem;
   font-family: var(--headings);
   font-size: 2rem;
+  text-align: left;
 }
 
 .log label {
   font-weight: 800;
+  font-size: 1.2rem;
 }
 
 .log form {
   display: flex;
   flex-direction: column;
+  gap: .6rem;
+  width: 80%;
+  padding: 3rem 0 4rem 0;
 }
 
+.log form input[type = "submit"] {
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 2.5rem;
+  border: 2px black solid;
+}
 
+.log form label + input {
+  width: 100%;
+  height: 2.5rem;
+  padding-left: 1rem;
+  border-radius: 0;
+  border: 1px solid black;
+  box-sizing: border-box;
+  font-family: var(--text);
+  font-weight: bolder;
+}
+.log form label + input::placeholder {
+  color: rgb(120, 119, 119);
+}
 
+.log form label + input:focus {
+  outline: none;
+  color: black;
+}
 
 /***************************************************************
 /***************************************************************
