@@ -18,7 +18,7 @@
             <div class="site-structure">
                 <div class="category">
                     <h4>Nos fleurs</h4>
-                    <a href="#">Toutes nots fleurs</a>
+                    <a href="#">Toutes nos fleurs</a>
                     <a href="#">Fleurs à l'unité</a>
                     <a href="#">Roses</a>
                 </div>

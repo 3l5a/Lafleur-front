@@ -1,14 +1,14 @@
 mvc :
-"j'ai utilisé le modele modele view controleur en couche"
+"j'ai utilisé le model model view controleur en couche"
 
 
 mvc2 :
-interactions view-modele sans passer par le controleur (interactions de lecture seule -> "select" (!= requetes de modification)
+interactions view-model sans passer par le controleur (interactions de lecture seule -> "select" (!= requetes de modification)
 la notion de couche disparait (même s'il reste des couches)
 
 
 
-pdo déclaration = dans le modele 
+pdo déclaration = dans le model 
 
 Obligatoire:  dire qu'il faut plusieurs comptes pour un accès à une base de données (raisons de sécurité), avec différents 
 privilèges, gestion des droits d'accès (dans le pdo = 'root' change - ex sur mysql créer un utilisateur qui a que des droits
@@ -16,7 +16,7 @@ de "select" (pas de "delete") // faire un screen des privilèges sur phpmyadmin 
 
 
 
-la connexion au pdo = dans le modele pour des raisons de sécurité
+la connexion au pdo = dans le model pour des raisons de sécurité
 
 
 matomo analytics (open source) pour récupérer les ip etc... de l'analytics

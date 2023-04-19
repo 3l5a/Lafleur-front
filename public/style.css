@@ -3,7 +3,7 @@
   --lafleur-dark: #8b3737;
   --lafleur-red: #b40000;
   --header-light-pink: #fee5e5;
-  --bcg-light: #FBF5EE;
+  --bcg-light: #fbf5ee;
   --text: "Quicksand", "Helvetica";
   --headings: "Lancelot", "Helvetica";
   --text-size-mobile: 0.8rem;
@@ -146,12 +146,13 @@ main {
   margin: auto;
 }
 
-h2 { /*HEADINGS WITH WHITE BACKGROUND*/
+h2 {
+  /*HEADINGS WITH WHITE BACKGROUND*/
   width: 100%;
   /* margin-bottom: 3rem; */
   margin: auto;
   margin-bottom: 3rem;
-  padding: .7rem 0;
+  padding: 0.7rem 0;
   font-family: var(--headings);
   font-size: 2.2rem;
   text-align: center;
@@ -161,7 +162,7 @@ h2 { /*HEADINGS WITH WHITE BACKGROUND*/
 
 /***************************************************************
 /***************************************************************
-/* TERMS */
+/* US */
 /***************************************************************
 /***************************************************************/
 .us h3 {
@@ -174,7 +175,7 @@ h2 { /*HEADINGS WITH WHITE BACKGROUND*/
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap:25px;
+  gap: 25px;
   margin-bottom: 4rem;
 }
 
@@ -210,7 +211,6 @@ h2 { /*HEADINGS WITH WHITE BACKGROUND*/
   font-weight: bolder;
 }
 
-
 /***************************************************************
 /***************************************************************
 /* TERMS */
@@ -221,7 +221,6 @@ h2 { /*HEADINGS WITH WHITE BACKGROUND*/
   display: grid;
 }
 
-
 .terms h4 {
   font-size: 1.5rem;
   margin: 1.5rem 0;
@@ -229,12 +228,75 @@ h2 { /*HEADINGS WITH WHITE BACKGROUND*/
 }
 
 .terms p {
-  margin: .5rem 0;
+  margin: 0.5rem 0;
 }
 
+/***************************************************************
+/***************************************************************
+/* HOME */
+/***************************************************************
+/***************************************************************/
+.events {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.events a .category {
+  display: grid;
+  grid-template-areas: "a";
+  height: 190px;
+  width: 190px;
+  place-items: center;
+  margin-bottom: 6rem;
+}
 
+.events a {
+  text-decoration: none;
+}
 
+.events p {
+  font-weight: bolder;
+  font-size: 1.5rem;
+  backdrop-filter: blur(5px);
+}
+
+.category .background,
+.category p {
+  grid-area: a;
+}
+
+.category .background {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+.category.birth .background {
+  background-image: url(assets/flower-birth.jpg);
+}
+
+.category.birthday .background {
+  background-image: url(assets/ankit-choudhary-1ufb6oXdaYU-unsplash.jpg);
+}
+.category.grief .background {
+  background-image: url(assets/anna-pavlin-UMH92TvHEz0-unsplash.jpg);
+}
+.category.feels .background {
+  background-image: url(assets/bence-balla-schottner-ehGgVnHc-1Q-unsplash.jpg);
+}
+
+.category.thanks .background {
+  background-image: url(assets/erol-ahmed-IHL-Jbawvvo-unsplash.jpg);
+}
+
+/***************************************************************
+/***************************************************************
+/* CONNECTION */
+/***************************************************************
+/***************************************************************/
 
 
 
@@ -256,7 +318,8 @@ footer .container {
   width: 1024px;
 }
 
-footer, footer a {
+footer,
+footer a {
   background-color: var(--lafleur-dark);
   color: var(--bcg-light);
   text-decoration: none;
@@ -323,14 +386,13 @@ footer h4 {
   footer .container {
     width: auto;
   }
-
 }
 
 /* responsive mobiles */
 @media (max-width: 480px) {
   .store-info {
     height: 1.5rem;
-    font-size: .7rem;
+    font-size: 0.7rem;
   }
   /*burger menu*/
   .close,
@@ -403,7 +465,7 @@ footer h4 {
   }
 
   .city.mobile {
-    font-size: .7rem;
+    font-size: 0.7rem;
   }
 
   .nav-container {
@@ -428,8 +490,6 @@ footer h4 {
     padding-right: 10px;
   }
 
-
-
   /* FOOTER */
   .store {
     width: 100%;
@@ -451,6 +511,6 @@ footer h4 {
   }
 
   .category {
-    line-height: .5rem;
+    line-height: 0.5rem;
   }
 }

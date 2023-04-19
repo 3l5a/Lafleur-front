@@ -1,29 +1,29 @@
 <?php
 
 session_start();
-// unset($_SESSION); //debug
+//debug :
+// unset($_SESSION);
+// var_dump($_SESSION['customer']);
 
 // Pour afficher les erreurs PHP
 error_reporting(E_ALL);
-ini_set("display_errors", 1);
+ini_set('display_errors', 1);
 // Attention : A supprimer en production !!!
 
-// require("./util/fonctions.inc.php");
-// require('./util/validateurs.inc.php');
-// require("./App/modele/AccesDonnees.php");
+require('./util/functions.inc.php');
+require('./util/validators.inc.php');
+require('./App/model/DbAccess.php');
 
 $customerSession = [];
 
 if (!empty($_SESSION['customer'])) {
     $customerSession = $_SESSION['customer'];
-} // si $_SESSION existe, alors il définit $customerSession 
-// $_SESSION['customer'] est défini dans le controleur du compte customer
+} // defines $_SESSION in a variable if it exists
 
-
-$uc = filter_input(INPUT_GET, 'uc'); // Use Case
-$action = filter_input(INPUT_GET, 'action'); // Action
+$uc = filter_input(INPUT_GET, 'uc');
+$action = filter_input(INPUT_GET, 'action');
 $id = filter_input(INPUT_GET, 'id'); // id of a product
-// initPanier();
+initCart();
 
 if (!$uc) {
     $uc = 'home';
@@ -31,15 +31,41 @@ if (!$uc) {
 
 // main controller
 switch ($uc) {
-    // case 'account':
-    //     include 'App/controleur/c_consultation.php';
-    //     break;
-    // case 'visite':
-    //     include 'App/controleur/c_consultation.php';
-    //     break;
+        //products
+    case 'home':
+        include 'App/controller/c_consultation.php';
+        break;
+    case 'all':
+        include 'App/controller/c_consultation.php';
+        break;
+    case 'product':
+        include 'App/controller/c_consultation.php';
+        break;
+
+        //customer account management
+    case 'isRegistered':
+        include 'App/controller/c_account.php';
+        break;
+    case 'log':
+        include 'App/controller/c_account.php';
+        break;
+    case 'account':
+        include 'App/controller/c_account.php';
+        break;
+    case 'cart':
+        include '';
+        break;
+
+        //misc
+    case 'us':
+        break;
+    case 'terms':
+        break;
+
     default:
         break;
 }
 
 
-include("App/view/template.php");
+
+include('App/view/template.php');

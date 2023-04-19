@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<!--
-Prototype de Lord Of Geek (LOG)
--->
 <html lang="en">
 
 <head>
@@ -14,16 +11,15 @@ Prototype de Lord Of Geek (LOG)
     <link href="https://fonts.googleapis.com/css2?family=Lancelot&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="public/reset.css" />
     <link rel="stylesheet" href="public/style.css" />
-    <script src="../../public/main.js" defer></script>
-
+    <script src="public/main.js" defer></script>
 </head>
 
 <body>
     <?php
     include 'App/view/v_header.php';
 
-    // view controller
     switch ($uc) {
+            // view controller
         case 'home':
             include 'App/view/v_home.php';
             break;
@@ -36,13 +32,10 @@ Prototype de Lord Of Geek (LOG)
 
             //customer account management
         case 'isRegistered':
-            include 'App/view/v_is_registered.php';
+            include 'App/view/v_isregistered.php';
             break;
-        case 'logup':
-            include 'App/view/v_logup.php';
-            break;
-        case 'login':
-            include 'App/view/v_login.php';
+        case 'log':
+            include 'App/view/v_loguplogin.php';
             break;
         case 'account':
             include 'App/view/v_account.php';

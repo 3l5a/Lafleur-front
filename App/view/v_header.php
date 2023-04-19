@@ -33,15 +33,15 @@
             <ul class="customer-links">
                 <li>
                     <?php
-                    if (!empty($clientSession)) {//client est connecté :
+                    if (!empty(($_SESSION['customer'])) && count($_SESSION['customer'])>1) {
                     ?><a href="index.php?uc=account"> <?php
-                    } else { //client n'est pas connecté :
+                    } else { 
                     ?><a href="index.php?uc=isRegistered"><?php
                     }?>
-                        <img src="public/assets/customer-icon.svg" alt="accès compte" title="accès compte" /></a>
+                        <img src="public/assets/customer-icon.svg" alt="accès compte" title="Accès compte" /></a>
                 </li>
                 <li>
-                    <img src="public/assets/basket-icon.svg" alt="accès compte" title="accès panier" />
+                    <img src="public/assets/basket-icon.svg" alt="accès compte" title="Accès panier" />
                 </li>
             </ul>
         </div>
