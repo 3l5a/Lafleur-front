@@ -56,9 +56,9 @@ switch ($action) {
         if (!empty($customer)) {
             displayMessage("Bienvenue customer");
             $_SESSION['customer'] = $customer;
-            header('Location: index.php?uc=accueil');
+            header('Location: index.php');
         } else {
-            displayError("mauvais mot de passe");
+            displayError("Mauvais mot de passe");
         }
 
         // unset($_SESSION['customerEmail']);
