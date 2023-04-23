@@ -60,8 +60,6 @@ switch ($action) {
         } else {
             displayError("Mauvais mot de passe");
         }
-
-        // unset($_SESSION['customerEmail']);
         break;
     case 'logOut':
         M_Customer::logOut();

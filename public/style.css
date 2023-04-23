@@ -36,10 +36,6 @@ a:hover {
   text-decoration: underline;
 }
 
-header {
-  margin-bottom: 4rem;
-}
-
 .nav-links a {
   height: 50px;
   margin: 0 15px;
@@ -165,6 +161,11 @@ h2 {
 /* US */
 /***************************************************************
 /***************************************************************/
+
+.us {
+  margin-top: 4rem;
+}
+
 .us h3 {
   font-family: var(--headings);
   font-size: 2rem;
@@ -344,7 +345,7 @@ h2 {
 }
 
 
-/* /slider */
+/* end of slider */
 
 .events {
   display: flex;
@@ -471,10 +472,49 @@ div.log {
 
 /***************************************************************
 /***************************************************************
-/* PRODUCT CARD */
+/* ALL PRODUCTS */
 /***************************************************************
 /***************************************************************/
+ /*  USER SELECT CHOICES SECTION*/
+section.user-choices {
+  background-color: white;
+  margin-bottom: 4rem;
+}
 
+.user-choices .choices {
+  width: 1024px;
+  margin: auto;
+}
+
+.choices {
+  display: flex;
+}
+
+div.color {
+  width: 16px;
+  height: 16px;
+  border: solid rgba(0, 0, 0, 0.426) .5px;
+}
+
+.choices svg {
+  width: 16px;
+  height: 16px;
+}
+
+div.eachColor, div.eachCategory {
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div.eachColor label {
+  display: flex;
+  gap: 10px;
+}
+
+
+/* RESULT PRODUCTS */
 main.products {
   display: flex;
   flex-wrap: wrap;
@@ -517,7 +557,7 @@ main.products {
 
 .card input {
   display: inline-flex;
-  justify-content: center; /* center the content horizontally */
+  justify-content: center; /* centers the content horizontally */
   align-items: center;
 
   width: fit-content;

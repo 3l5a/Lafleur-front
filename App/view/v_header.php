@@ -13,9 +13,9 @@
                 <a id="closeBtn" href="#" class="close">&times;</a>
                 <ul class="nav-links">
                     <li><a href="index.php">Accueil</a></li>
-                    <li><a href="index.php?uc=all">Toutes nos fleurs</a></li>
-                    <li><a href="index.php">Fleurs à l'unité</a></li>
-                    <li><a href="index.php">Roses</a></li>
+                    <li><a href="index.php?uc=all&action=catalogue">Toutes nos fleurs</a></li>
+                    <li><a href="index.php?uc=all&action=unit">Fleurs à l'unité</a></li>
+                    <li><a href="index.php?uc=all&action=roses">Roses</a></li>
                     <li><a href="index.php?uc=us">Qui sommes-nous</a></li>
                 </ul>
             </div>

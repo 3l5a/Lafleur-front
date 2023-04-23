@@ -13,9 +13,6 @@ class M_Product
     public static function index()
     {
         $req = "SELECT DISTINCT exemplaires.* , references_jeux.titre, etats.nom_etat, consoles.nom_console FROM exemplaires
-                    JOIN references_jeux ON exemplaires.reference_jeu_id = references_jeux.id
-                    JOIN references_jeux_has_categories ON references_jeux.id = references_jeux_has_categories.reference_jeu_id
-                    JOIN categories ON references_jeux_has_categories.categorie_id = categories.id
                     JOIN etats ON exemplaires.etat_id = etats.id
                     JOIN consoles ON exemplaires.consoles_id=consoles.id";
         // requete pour obtenir tous les jeux avec leurs titre + état + prix de vente + image + console du jeu
@@ -35,12 +32,7 @@ class M_Product
     public static function findBy(int $idCategorie): array
     {
         // couleur, nom, photo, alt, composition
-        $req = "SELECT exemplaires.*, references_jeux.titre, consoles.nom_console, etats.nom_etat FROM exemplaires
-                JOIN references_jeux ON exemplaires.reference_jeu_id = references_jeux.id
-                JOIN references_jeux_has_categories ON references_jeux.id = references_jeux_has_categories.reference_jeu_id
-                JOIN categories ON references_jeux_has_categories.categorie_id = categories.id
-                JOIN etats ON exemplaires.etat_id = etats.id
-                JOIN consoles ON exemplaires.consoles_id = consoles.id
+        $req = "SELECT exemplaires.*, etats.nom_etat FROM exemplaires
                 WHERE categories.id = :idCat";
 
         $pdo = DataAccess::getPdo();
@@ -65,8 +57,6 @@ class M_Product
         if ($nbProduits != 0) {
             foreach ($someProducts as $unIdProduit) {
                 $req = "SELECT exemplaires.*, references_jeux.titre, etats.nom_etat FROM exemplaires 
-                        JOIN references_jeux ON exemplaires.reference_jeu_id = references_jeux.id
-                        JOIN etats ON exemplaires.etat_id = etats.id
                         WHERE exemplaires.id = :id";
                 $pdo = DataAccess::getPdo();
                 $stmt = $pdo->prepare($req);
@@ -79,8 +69,6 @@ class M_Product
         }
         return $lesProduits;
     }
-
-    
 
     /**
      * all info from one product
