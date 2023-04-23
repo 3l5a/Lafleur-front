@@ -268,6 +268,12 @@ h2 {
   grid-area: 1 / 1 / 2 / 3;
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
+}
+
+.slide img {
+  height: 450px;
+  object-fit: cover;
 }
 
 .event-info {
@@ -277,15 +283,15 @@ h2 {
   justify-content: center;
 }
 
-.event-info input {
+.event-info a {
   width: fit-content;
   padding: 0.7rem 0.9rem .7rem .9rem;
-  background-color: white;
   border: 1px solid white;
-  font-family: var(--text);
+  background-color: white;
   color: var(--neutral-dark);
+  font-family: var(--text);
+  font-size: .8rem;
   text-transform: uppercase;
-  cursor: pointer;
   z-index: 10;
 }
 
@@ -295,6 +301,7 @@ h2 {
   line-height: 1.1;
   margin-bottom: 15px;
   color: white;
+  text-transform: uppercase;
 }
 
 .event-info p {
@@ -320,16 +327,20 @@ h2 {
   justify-content: center;
   align-items: end;
   gap: 10px;
-  z-index: 1000;
 }
 
 .slider .round .circle {
   width: 17px;
   height: 17px;
   background-color: rgba(250, 249, 249);
-  opacity: .6;
+  opacity: .45;
   border-radius: 100%;
   margin-bottom: 17px;
+  z-index: 10;
+}
+
+.slider .round .circle.active {
+  opacity: .8;
 }
 
 

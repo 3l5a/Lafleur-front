@@ -1,4 +1,4 @@
-// burger icon
+////////////////// BURGER MENU //////////////////
 let sidenav = document.getElementById("mySidenav");
 let openBtn = document.getElementById("openBtn");
 let closeBtn = document.getElementById("closeBtn");
@@ -6,28 +6,28 @@ let closeBtn = document.getElementById("closeBtn");
 openBtn.onclick = openNav;
 closeBtn.onclick = closeNav;
 
-/* Set the width of the side navigation to 250px */
+/* width of side navigation = 250px */
 function openNav() {
   sidenav.classList.add("active");
 }
 
-/* Set the width of the side navigation to 0 */
+/* width = 0 */
 function closeNav() {
   sidenav.classList.remove("active");
 }
 
-///// SLIDER /////
+//////////////////// SLIDER ////////////////////
 let slides = document.querySelectorAll(".slide");
 
 /**
  * function to hide all slides
  */
-function hideAll() {
-  slides.forEach(slide => {
-    if (!slide.classList.contains("active")) {
+function hideAll(array) {
+  array.forEach(el => {
+    if (!el.classList.contains("active")) {
       return;
     } else {
-      slide.classList.remove("active");
+      el.classList.remove("active");
     }
   })
 }
@@ -51,21 +51,23 @@ let slideCircles = document.querySelectorAll(".circle");
  */
 slideCircles.forEach((element, index) => {
   element.addEventListener('click', e => {
-    hideAll(slides[index + 1]);
+    hideAll(slides);
     showThis(slides[index]);
+
+    hideAll(slideCircles);
+    showThis(slideCircles[index]);
   })
 })
 
-setTimeout(() => {
-  console.log("Delayed for 1 second.");
-}, 1000);
-
-
 let i = 0;
 setInterval(() => {
-  console.log("coucou");
-    hideAll();
+  //slide visible
+    hideAll(slides);
     showThis(slides[i]);
+
+    //round shape emphasis
+    hideAll(slideCircles);
+    showThis(slideCircles[i]);
     if (i<slides.length-1) {
       i++;
     } else {

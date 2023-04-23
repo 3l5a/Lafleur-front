@@ -5,26 +5,26 @@
 
     ?>
     <div class="slider">
-        <div class="slide" class="active">
-            <img src="public/assets/slider1.png" alt="">
-            <div class="event-info">
-                <h4>SPÉCIAL LOTERIE FÊTE DES M&#200;RES</h4>
-                <p>Du 22 mai au 4 juin, Lafleur vous offre <br> une chance de gagner une surprise !</p>
-                <input type="submit" value=" VOIR LES BOUQUETS">
-            </div>
-        </div>
-        <div class="slide">
-            <img src="public/assets/store-front.jpg" alt="">
-            <div class="event-info">
-                <h4>Lafleur ouvre ses portes en ligne </h4>
-                <p>Vos fleuristes préférés se développent <br> et ouvrent leur boutique sur internet !</p>
-                <input type="submit" value=" VOIR NOS FLEURS">
-            </div>
-        </div>
-
         <div class="round">
             <div class="circle"></div>
             <div class="circle"></div>
+        </div>
+
+        <div class="slide" class="active">
+            <img src="public/assets/slider1.png" alt="Illustration Fête des mères">
+            <div class="event-info">
+                <h4>SPÉCIAL LOTERIE FÊTE DES M&#200;RES</h4>
+                <p>Du 22 mai au 4 juin, Lafleur vous offre <br> une chance de gagner une surprise !</p>
+                <a href="#">VOIR LES BOUQUETS</a>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="public/assets/store-front.jpg" alt="Notre devanture">
+            <div class="event-info">
+                <h4>Lafleur ouvre ses portes en ligne </h4>
+                <p>Vos fleuristes préférés se développent <br> et ouvrent leur boutique sur internet !</p>
+                <a href="index.php?uc=all">VOIR NOS FLEURS</a>
+            </div>
         </div>
     </div>
     <h2>Des fleurs pour chaque occasion</h2>
