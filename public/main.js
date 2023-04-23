@@ -16,6 +16,22 @@ function closeNav() {
   sidenav.classList.remove("active");
 }
 
+///////////////////// SELECT INPUT PRODUCTS //////////////////////
+//on click select
+let colorSelect = document.querySelector(".colors");
+let categorySelect = document.querySelector(".categories");
+
+// div to open/close
+let colorDiv = document.querySelector(".color-choices");
+let categoryDiv = document.querySelector(".category-choices");
+
+colorSelect.onclick = (e) => {
+  if 
+
+}
+
+
+
 //////////////////// SLIDER ////////////////////
 let slides = document.querySelectorAll(".slide");
 

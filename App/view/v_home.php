@@ -23,7 +23,7 @@
             <div class="event-info">
                 <h4>Lafleur ouvre ses portes en ligne </h4>
                 <p>Vos fleuristes préférés se développent <br> et ouvrent leur boutique sur internet !</p>
-                <a href="index.php?uc=all">VOIR NOS FLEURS</a>
+                <a href="index.php?uc=all&action=catalogue">VOIR NOS FLEURS</a>
             </div>
         </div>
     </div>
