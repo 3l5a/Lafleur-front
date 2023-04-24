@@ -1,6 +1,6 @@
 <section class="user-choices">
     <form action="index.php?uc=all&action=catalogue" method="post" class="choices">
-        <div class="position">
+        <div class="position-rel">
             <div class="colors">
                 <span>Couleurs</span>
                 <svg viewBox="0 0 16 16">
@@ -16,12 +16,12 @@
                                 <p><?= ucfirst($color['name_color']) ?></p>
                             </label>
                         </div>
-                        <input type="checkbox" name="color" id="<?= $color['name_color'] ?>">
+                        <input type="checkbox" name="color[]" id="<?= $color['name_color'] ?>" value="<?= $color['id'] ?>">
                     </div>
                 <?php } ?>
             </div>
         </div>
-        <div class="position">
+        <div class="position-rel">
             <div class="categories">
                 Catégories
                 <svg viewBox="0 0 16 16">
@@ -32,7 +32,7 @@
                 <?php foreach ($categories as $category) { ?>
                     <div class="eachCategory">
                         <label for="<?= $category['name_category'] ?>"><?= ucfirst($category['name_category']) ?></label>
-                        <input type="checkbox" name="category" id="<?= $category['name_category'] ?>">
+                        <input type="checkbox" name="category[]" id="<?= $category['name_category'] ?>" value="<?= $category['id'] ?>">
                     </div>
                 <?php } ?>
             </div>
@@ -45,9 +45,11 @@
 
 
 <main class="products">
-<?php foreach ($products as $product) { ?>
+<?php foreach ($products as $product) { 
+            var_dump($product['image_product']);
+            ?>
     <div class="card">
-        <a href="#" class="card-link">
+        <a href="index.php?uc=product&action=show&id=<?= $product['id'] ?>" class="card-link">
             <img src="../../public/assets/<?= $product['image_product'] ?>" alt="">
             <div class="product-specs">
                 <div class="product-name">
@@ -58,7 +60,7 @@
                     <p><span>dès</span> <?= $product['price_product'] ?>€</p>
                 </div>
             </div>
-            <input type="submit" value="Ajouter au panier">
+            <a href="index.php?uc=product&action=add&id=<?= $product['id'] ?>">AJOUTER AU PANIER</a>
         </a>
     </div>
     <?php } ?>

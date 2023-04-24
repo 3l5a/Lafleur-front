@@ -389,17 +389,17 @@ h2 {
 }
 
 .category.birthday .background {
-  background-image: url(assets/ankit-choudhary-1ufb6oXdaYU-unsplash.jpg);
+  background-image: url(assets/rose-jaune.jpg);
 }
 .category.grief .background {
-  background-image: url(assets/anna-pavlin-UMH92TvHEz0-unsplash.jpg);
+  background-image: url(assets/rose-rose.jpg);
 }
 .category.feels .background {
-  background-image: url(assets/bence-balla-schottner-ehGgVnHc-1Q-unsplash.jpg);
+  background-image: url(assets/bouquet-roses-rouges.jpg);
 }
 
 .category.thanks .background {
-  background-image: url(assets/erol-ahmed-IHL-Jbawvvo-unsplash.jpg);
+  background-image: url(assets/bouquet-roses-roses.jpg);
 }
 
 /***************************************************************
@@ -477,28 +477,34 @@ div.log {
 /*  USER SELECT CHOICES SECTION*/
 section.user-choices {
   background-color: white;
-  margin-bottom: 4rem;
+  margin: 0 0 4rem 0;
+  padding: .5rem 0;
 }
 
 .user-choices .choices {
   width: 1024px;
   margin: auto;
-}
-
-.choices {
   display: flex;
-  gap: 40px;
-}
-
-div.color {
-  width: 16px;
-  height: 16px;
-  border: solid rgba(0, 0, 0, 0.426) 0.5px;
+  gap: 25px;
 }
 
 .choices svg {
   width: 16px;
   height: 16px;
+}
+
+.colors:hover, .categories:hover {
+  cursor: pointer;
+  border-radius: 1px;
+  border: 1px solid rgba(128, 128, 128, 0.372);
+}
+
+.colors, .categories {
+  color: rgba(128, 128, 128, 0.683);
+  padding: 2px 4px 5px 4px;
+  border-radius: 3px;
+  border: 1px solid rgba(128, 128, 128, 0.516);
+  line-height: 0px;
 }
 
 div.eachColor,
@@ -517,11 +523,6 @@ div.eachCategory input {
   height: 16px;
 }
 
-div.eachColor label {
-  display: flex;
-  gap: 10px;
-}
-
 section.user-choices input {
   height: 25px;
   background-color: var(--neutral-dark);
@@ -532,17 +533,34 @@ section.user-choices input {
   line-height: 0px;
 }
 
-.position {
+div.color {
+  width: 16px;
+  height: 16px;
+  border: solid rgba(0, 0, 0, 0.426) 0.5px;
+}
+
+div.eachColor label {
+  display: flex;
+  gap: 10px;
+}
+
+.position-rel {
   position: relative;
 }
 
 .user-choices .color-choices,
 .user-choices .category-choices {
   position: absolute;
-  background-color: white;
   left: -20px;
   border-radius: 3px;
   border: 1px solid rgba(128, 128, 128, 0.192);
+  background-color: white;
+  display: none;
+}
+
+.category-choices.active,
+.color-choices.active {
+  display: block;
 }
 
 /* RESULT PRODUCTS */

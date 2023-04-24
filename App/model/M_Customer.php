@@ -41,12 +41,11 @@ class M_Customer
             $cityId = $cityId[0]['id'];
         } else {
             $addCity = "INSERT INTO city (name_city, zip_code_city, deliverable) VALUES (:city, :zip, 0)";
-            var_dump($addCity);
             $pdo = DataAccess::getPdo();
-            $cityStmt = $pdo->prepare($addCity);
-            $cityStmt->bindParam(':city', $city, PDO::PARAM_STR);
-            $cityStmt->bindParam(':zip', $zip, PDO::PARAM_INT);
-            $cityStmt->execute(); //bool
+            $stmt = $pdo->prepare($addCity);
+            $stmt->bindParam(':city', $city, PDO::PARAM_STR);
+            $stmt->bindParam(':zip', $zip, PDO::PARAM_INT);
+            $stmt->execute(); //bool
 
             $cityId = $pdo->lastInsertId();
         }

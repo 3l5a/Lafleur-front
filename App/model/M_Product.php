@@ -2,48 +2,93 @@
 
 class M_Product
 {
-
-    // index + show + sortBy
-
     /**
-     * Retourne tous les jeux en vente, dans le stock
+     * Find all color names and codes
      *
-     * @return tableau associatif
+     * @return associative array
      */
-    public static function index()
+    public static function findColors(): array
     {
-        $req = "SELECT DISTINCT exemplaires.* , references_jeux.titre, etats.nom_etat, consoles.nom_console FROM exemplaires
-                    JOIN etats ON exemplaires.etat_id = etats.id
-                    JOIN consoles ON exemplaires.consoles_id=consoles.id";
-        // requete pour obtenir tous les jeux avec leurs titre + état + prix de vente + image + console du jeu
+        $req = "SELECT color.name_color, color.code_color, color.id FROM color";
         $res = DataAccess::query($req);
-        $allProducts = $res->fetchAll();
+        $colors = $res->fetchAll();
 
-        return $allProducts;
+        return $colors;
     }
 
     /**
-     * Retourne sous forme d'un tableau associatif tous les jeux de la
-     * catégorie passée en argument
+     * Find all category names
      *
-     * @param $idCategorie
-     * @return un tableau associatif
+     * @return array
      */
-    public static function findBy(int $idCategorie): array
+    public static function findCategories(): array
     {
-        // couleur, nom, photo, alt, composition
-        $req = "SELECT exemplaires.*, etats.nom_etat FROM exemplaires
-                WHERE categories.id = :idCat";
+        $req = "SELECT category.name_category, category.id FROM category";
+        $res = DataAccess::query($req);
+        $categories = $res->fetchAll();
+
+        return $categories;
+    }
+
+    /**
+     * Return products (id + name + price + image) depending on user input
+     *
+     * @return array
+     */
+    public static function indexSelected($colors, $categories): array
+    {
+        //base request
+        $req = "SELECT DISTINCT product.name_product, product.id, product.price_product, product.description_product, product.image_product
+                FROM product
+                LEFT JOIN product_composition ON product.id = product_composition.product_id
+                LEFT JOIN supplied_item ON product_composition.supplied_item_id = supplied_item.id
+                LEFT JOIN color ON supplied_item.color_id = color.id
+                LEFT JOIN product_category ON product.id = product_category.category_id
+                LEFT JOIN category ON product_category.category_id = category.id";
+
+
+        if (!empty($categories) && !empty($colors)) {
+            //add something to request if variables exists
+            $inClauseCat = "'" . implode("','", $categories) . "'";
+            $req .= " WHERE category.id IN ($inClauseCat)";
+
+            $inClauseCol = "'" . implode("','", $colors) . "'";
+            $req .= " AND color.id IN ($inClauseCol)";
+        }
+
+        if (!empty($categories) && empty($colors)) {
+            $inClauseCat = "'" . implode("','", $categories) . "'";
+            $req .= " WHERE category.name_category IN ($inClauseCat)";
+        }
+
+        if (empty($categories) && !empty($colors)) {
+            $inClauseCol = "'" . implode("','", $colors) . "'";
+            $req .= " WHERE color.name_color IN ($inClauseCol)";
+        }
 
         $pdo = DataAccess::getPdo();
         $stmt = $pdo->prepare($req);
-        $stmt->bindParam(':idCat', $idCategorie, PDO::PARAM_INT);
         $stmt->execute();
 
-        $lesLignes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $lesLignes;
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $products;
     }
 
+    public static function showOne($id): array
+    {
+        $req = "SELECT product.name_product, product.id, product.quantity_product, product.price_product, product.image_product, product.description_product
+                FROM product
+                WHERE product.id = :id";
+        $pdo = DataAccess::getPdo();
+        $stmt = $pdo->prepare($req);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    /////////////////////////////////////////////// LOG 
     /**
      * Retourne les jeux concernés par le tableau des idProduits passé en argument
      *
@@ -68,32 +113,6 @@ class M_Product
             }
         }
         return $lesProduits;
-    }
-
-    /**
-     * all info from one product
-     *
-     * @param [type] $idProduct
-     * @return [type] tableau associatif
-     */
-    public static function show(int $idProduct)
-    {
-        $req = "SELECT exemplaires.*, references_jeux.titre, consoles.nom_console, etats.nom_etat, series.nom_serie FROM exemplaires
-                JOIN references_jeux ON exemplaires.reference_jeu_id = references_jeux.id
-                JOIN references_jeux_has_categories ON references_jeux.id = references_jeux_has_categories.reference_jeu_id
-                JOIN categories ON references_jeux_has_categories.categorie_id = categories.id
-                JOIN etats ON exemplaires.etat_id = etats.id
-                JOIN consoles ON exemplaires.consoles_id = consoles.id
-                LEFT JOIN series ON references_jeux.series_id = series.id
-                WHERE exemplaires.id = :idProduct";
-
-        $pdo = DataAccess::getPdo();
-        $stmt = $pdo->prepare($req);
-        $stmt->bindParam(':idProduct', $idProduct, PDO::PARAM_INT);
-        $stmt->execute();
-
-        $leProduct = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $leProduct;
     }
 
     /**

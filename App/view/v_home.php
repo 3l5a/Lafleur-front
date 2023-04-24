@@ -6,11 +6,11 @@
     ?>
     <div class="slider">
         <div class="round">
-            <div class="circle"></div>
-            <div class="circle"></div>
+            <div class="circle active"></div>
+            <div class="circle "></div>
         </div>
 
-        <div class="slide" class="active">
+        <div class="slide active">
             <img src="public/assets/slider1.png" alt="Illustration Fête des mères">
             <div class="event-info">
                 <h4>SPÉCIAL LOTERIE FÊTE DES M&#200;RES</h4>

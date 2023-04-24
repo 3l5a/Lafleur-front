@@ -20,19 +20,13 @@ function emptyCart()
 
 /**
  * add product to cart
- *
- * if product is not in cart, add to cart, else return false 
+ * 
  * @param $idProduct : identifiant de Product
  * @return bool 
  */
-function addToCart($idProduct): bool
+function addToCart($idProduct)
 {
-    $ok = false;
-    if (!in_array($idProduct, $_SESSION['cart'])) {
-        $_SESSION['cart'][] = $idProduct;
-        $ok = true;
-    }
-    return $ok;
+    $_SESSION['cart'][] = $idProduct;
 }
 
 /**
@@ -40,7 +34,7 @@ function addToCart($idProduct): bool
  *
  * @return : array of product IDs
  */
-function getIdsInCart()
+function getCartId()
 {
     return $_SESSION['cart'];
 }
@@ -51,7 +45,7 @@ function getIdsInCart()
  * if cart session exists, returns its length
  * @return : length/count
  */
-function cartNumberProducts()
+function cartCount()
 {
     $n = 0;
     if (isset($_SESSION['cart'])) {
@@ -80,9 +74,9 @@ function displayErrors(array $msgErrors)
 {
     echo '﻿<div class="error"><ul>';
     foreach ($msgErrors as $error) {
-        ?>
-            <li><?php echo $error ?></li>
-        <?php
+?>
+        <li><?php echo $error ?></li>
+<?php
     }
     echo '</ul></div>';
 }
