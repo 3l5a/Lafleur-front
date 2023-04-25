@@ -1,4 +1,4 @@
-<main>
+<main class="connection">
     <div class="log">
         <h3>Se connecter /s'inscrire</h3>
         <form action="index.php?uc=log&action=checkUp" method="POST">

@@ -32,16 +32,16 @@
             </div>
             <ul class="customer-links">
                 <li>
-                    <?php
-                    if (!empty(($_SESSION['customer'])) && count($_SESSION['customer'])>1) {
-                    ?><a href="index.php?uc=account"> <?php
-                    } else { 
-                    ?><a href="index.php?uc=isRegistered"><?php
-                    }?>
-                        <img src="public/assets/customer-icon.svg" alt="accès compte" title="Accès compte" /></a>
+                    <?php if (!empty(($_SESSION['customer'])) && count($_SESSION['customer'])>1) { ?>
+                    <a href="index.php?uc=account&action=visit"> 
+                    <?php } else { ?>
+                    <a href="index.php?uc=isRegistered">
+                    <?php } ?>
+                        <img src="public/assets/customer-icon.svg" alt="accès compte" title="Accès compte" />
+                    </a>
                 </li>
                 <li>
-                    <img src="public/assets/basket-icon.svg" alt="accès compte" title="Accès panier" />
+                    <a href="index.php?uc=account&action=visit"><img src="public/assets/basket-icon.svg" alt="accès compte" title="Accès panier" /></a>
                 </li>
             </ul>
         </div>

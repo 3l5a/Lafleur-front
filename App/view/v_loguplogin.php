@@ -1,4 +1,4 @@
-<main>
+<main class="connection">
         <?php if (!empty($customerSession)) { ?>
             <div class="login log">
                 <h3>Se connecter</h3>

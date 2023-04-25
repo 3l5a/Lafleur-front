@@ -29,7 +29,6 @@ if (!$uc) {
     $uc = 'home';
 }
 
-// main controller
 switch ($uc) {
         //products
     case 'home':
@@ -40,6 +39,7 @@ switch ($uc) {
         break;
     case 'product':
         include 'App/controller/c_consultation.php';
+        include 'App/controller/c_manageCart.php';
         break;
 
         //customer account management

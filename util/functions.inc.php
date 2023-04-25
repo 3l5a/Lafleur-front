@@ -19,14 +19,18 @@ function emptyCart()
 }
 
 /**
- * add product to cart
+ * add product to cart, increment quantity if product already in cart
  * 
- * @param $idProduct : identifiant de Product
+ * @param $idProduct
  * @return bool 
  */
 function addToCart($idProduct)
 {
-    $_SESSION['cart'][] = $idProduct;
+    if (array_key_exists($_SESSION['cart'], $idProduct)) {
+        $_SESSION['cart'][$idProduct]++;
+    } else {
+        $_SESSION['cart'][] = $idProduct;
+    }
 }
 
 /**

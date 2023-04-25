@@ -172,18 +172,39 @@ class M_Customer
      * retrieves all orders from one user
      *
      * @param integer $id
+     * @return bool
+     */
+    public static function show($id): bool
+    {
+        $req = "SELECT customer.* FROM customer WHERE customer.id = :id"; // manque adresse
+        $pdo = DataAccess::getPdo();
+        $stmt = $pdo->prepare($req);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+
+    /**
+     * retrieves all orders from one user
+     *
+     * @param integer $id
      * @return array
      */
     public static function customerOrderHistory($id): array
     {
-        $req = "SELECT DISTINCT orders.*, references_jeux.titre, consoles.nom_console FROM orders
-                JOIN exemplaires ON exemplaires.reference_jeu_id = reference_jeu_id
-                JOIN lignes_commande ON orders.id = lignes_commande.commande_id AND exemplaires.id = lignes_commande.exemplaire_id
-                JOIN references_jeux ON exemplaires.reference_jeu_id = references_jeux.id
-                JOIN consoles ON consoles.id = exemplaires.consoles_id
-                WHERE client_id = :id 
-                GROUP BY created_at, references_jeux.titre
-                ORDER BY created_at desc";
+        $req = "SELECT customer_order.id,
+                        customer_order.date_customer_order,
+                        customer_order.delivery_date_customer_order,
+                        customer_order.shipping_cost,
+                        prize.name_prize,
+                        product.name_product, 
+                        order_status.name_order_status 
+                FROM customer_order
+                JOIN line_customer ON line_customer.customer_order_id = customer_order.id
+                JOIN product ON line_customer.product_id = product.id
+                JOIN order_status ON order_status.id = customer_order.order_status_id
+                JOIN prize ON prize.id = line_customer.prize_id
+                JOIN customer ON customer.id = customer_order.customer_id
+                WHERE customer.id = :id";
 
         $pdo = DataAccess::getPdo();
         $stmt = $pdo->prepare($req);

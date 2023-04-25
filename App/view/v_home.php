@@ -1,9 +1,4 @@
 <main class="home">
-    <?php if (isset($_SESSION['customer']) && gettype($_SESSION['customer']) != 'boolean') {
-        echo "Bonjour" . " " . $_SESSION['customer']['first_name_customer'] . " " . $_SESSION['customer']['last_name_customer'];
-    }
-
-    ?>
     <div class="slider">
         <div class="round">
             <div class="circle active"></div>

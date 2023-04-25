@@ -408,6 +408,10 @@ h2 {
 /***************************************************************
 /***************************************************************/
 
+main.connection {
+  margin-top: 4rem;
+}
+
 div.log {
   display: flex;
   flex-direction: column;
@@ -606,7 +610,7 @@ main.products {
 
 .card input {
   display: inline-flex;
-  justify-content: center; /* centers the content horizontally */
+  justify-content: center;
   align-items: center;
 
   width: fit-content;

@@ -2,12 +2,15 @@
 
 class M_Cart
 {
+   
+
     /**
-     * get product data to display on a page
+     * get quantity of product then sets it to quantity - 1
      *
-     * @returnassociative array
+     * @return bool
      */
-    public static function decrementQty() {
-        $req = "SELECT";
+    public static function getProduct($id)
+    {
+
     }
 }

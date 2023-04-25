@@ -1,10 +1,21 @@
 <?php
-include 'App/model/M_Customer.php';
+include_once 'App/model/M_Customer.php';
+include_once 'App/model/M_Cart.php';
 
 /**
  * Customer account managing
  */
 switch ($action) {
+    case 'visit':
+        $cartContent = $_SESSION['cart']; // associative array [$idProduct => qty in cart]
+        //contenu panier //
+
+        $formerOrders = M_Customer::customerOrderHistory($idCustomer);
+        //comandes passées //
+
+        $client = M_Customer::show($idCustomer);
+        // infos client
+        break;
     case 'checkUp': // if customer found : redirect to logIn, else redirect to logUp
         $email = filter_input(INPUT_POST, 'email');
         $customer = M_Customer::isCustomer($email);
@@ -26,7 +37,7 @@ switch ($action) {
         $city = filter_input(INPUT_POST, 'city');
         $samePassword = filter_input(INPUT_POST, 'confirmPwd');
 
-        $address2 = empty($address2) ? NULL : $address2;//if input empty, data = NULL
+        $address2 = empty($address2) ? NULL : $address2; //if input empty, data = NULL
 
         $errors = M_Customer::isValid($lastName, $firstName, $address1, $city, $zip, $email);
 
