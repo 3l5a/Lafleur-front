@@ -148,7 +148,7 @@ $(document).ready(function() {
             }
         });
     };
-    
+
     /**
     * @method reset
     * Reset a slot to initial state
@@ -173,9 +173,9 @@ $(document).ready(function() {
     function printResult() {
         var res;
         if(win[a.pos] === win[b.pos] && win[a.pos] === win[c.pos]) {
-            res = "You Win!";
+            res = "Vous avez gagné !";
         } else {
-            res = "You Lose";
+            res = "Vous avez perdu !";
         }
         $('#result').html(res);
     }
@@ -195,9 +195,9 @@ $(document).ready(function() {
             b.start();
             c.start();
             this.innerHTML = "Stop";
-            
+
             disableControl(); //disable control until the slots reach max speed
-            
+
             //check every 100ms if slots have reached max speed 
             //if so, enable the control
             x = window.setInterval(function() {
@@ -213,7 +213,7 @@ $(document).ready(function() {
             this.innerHTML = "Reset";
 
             disableControl(); //disable control until the slots stop
-            
+
             //check every 100ms if slots have stopped
             //if so, enable the control
             x = window.setInterval(function() {

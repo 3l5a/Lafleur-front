@@ -38,10 +38,17 @@
                     <a href="index.php?uc=isRegistered">
                     <?php } ?>
                         <img src="public/assets/customer-icon.svg" alt="accès compte" title="Accès compte" />
+                        <?php if (!empty(($_SESSION['customer'])) && count($_SESSION['customer'])>1) { ?>
+                            <span>&#10003;</span>
+                        <?php } ?>
+
                     </a>
                 </li>
                 <li>
                     <a href="index.php?uc=account&action=visit"><img src="public/assets/basket-icon.svg" alt="accès compte" title="Accès panier" /></a>
+                    <?php if (!empty(($_SESSION['cart']))) { ?>
+                            <span>&#10003;</span>
+                        <?php } ?>
                 </li>
             </ul>
         </div>

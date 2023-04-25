@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Lancelot&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="public/reset.css" />
     <link rel="stylesheet" href="public/style.css" />
-    <script src="public/main.js" defer></script>
 </head>
 
 <body>
@@ -51,14 +50,21 @@
         case 'terms':
             include 'App/view/v_terms.php';
             break;
+        case 'lottery':
+            include 'App/view/v_lottery.php';
 
         default:
             break;
     }
 
     include 'App/view/v_footer.php';
-
     ?>
 </body>
+
+<script src="public/main.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script src="public/jquery.spritely.js"></script>
+<script src="public/jquery.backgroundPosition.js"></script>
+<script src="public/slot.js"></script>
 
 </html>

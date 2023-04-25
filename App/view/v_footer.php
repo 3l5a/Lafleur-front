@@ -24,11 +24,11 @@
                 </div>
                 <div class="category">
                     <h4>Occasions</h4>
-                    <a href="#">Amour & sentiments</a>
-                    <a href="#">Anniversaire</a>
-                    <a href="#">Mariage</a>
-                    <a href="#">Naissance</a>
-                    <a href="#">Remerciements</a>
+                    <a href="index.php?uc=all&action=feels">Amour & sentiments</a>
+                    <a href="index.php?uc=all&action=birthday">Anniversaire</a>
+                    <a href="index.php?uc=all&action=wedding">Mariage</a>
+                    <a href="index.php?uc=all&action=birth">Naissance</a>
+                    <a href="index.php?uc=all&action=thanks">Remerciements</a>
                 </div>
                 <div class="category">
                     <h4>Qui sommes-nous</h4>

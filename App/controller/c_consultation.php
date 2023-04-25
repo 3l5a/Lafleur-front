@@ -28,12 +28,58 @@ switch ($action) {
         $categorySelected = ["7"];
 
         $products = M_Product::indexSelected($colorSelected, $categorySelected);
+        break;
     case 'unit':
         $colors = M_Product::findColors();
         $categories = M_Product::findCategories();
 
         $colorSelected = null;
         $categorySelected = ["6"];
+
+        $products = M_Product::indexSelected($colorSelected, $categorySelected);
+        break;
+    case 'wedding':
+        $colors = M_Product::findColors();
+        $categories = M_Product::findCategories();
+
+        $colorSelected = null;
+        $categorySelected = ["10"];
+
+        $products = M_Product::indexSelected($colorSelected, $categorySelected);
+        break;
+    case 'birth':
+        $colors = M_Product::findColors();
+        $categories = M_Product::findCategories();
+
+        $colorSelected = null;
+        $categorySelected = ["1"];
+
+        $products = M_Product::indexSelected($colorSelected, $categorySelected);
+        break;
+    case 'birthday':
+        $colors = M_Product::findColors();
+        $categories = M_Product::findCategories();
+
+        $colorSelected = null;
+        $categorySelected = ["5"];
+
+        $products = M_Product::indexSelected($colorSelected, $categorySelected);
+        break;
+    case 'feels':
+        $colors = M_Product::findColors();
+        $categories = M_Product::findCategories();
+
+        $colorSelected = null;
+        $categorySelected = ["3"];
+
+        $products = M_Product::indexSelected($colorSelected, $categorySelected);
+        break;
+    case 'thanks':
+        $colors = M_Product::findColors();
+        $categories = M_Product::findCategories();
+
+        $colorSelected = null;
+        $categorySelected = ["4"];
 
         $products = M_Product::indexSelected($colorSelected, $categorySelected);
         break;

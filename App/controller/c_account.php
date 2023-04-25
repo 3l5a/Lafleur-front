@@ -7,6 +7,7 @@ include_once 'App/model/M_Cart.php';
  */
 switch ($action) {
     case 'visit':
+        $idCustomer = $_SESSION['customer']['id'];
         $cartContent = $_SESSION['cart']; // associative array [$idProduct => qty in cart]
         //contenu panier //
 

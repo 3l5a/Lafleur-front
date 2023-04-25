@@ -61,6 +61,9 @@ switch ($uc) {
         break;
     case 'terms':
         break;
+    case 'lottery':
+        include 'App/controller/c_lottery.php';
+        break;
 
     default:
         break;

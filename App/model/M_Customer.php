@@ -169,7 +169,7 @@ class M_Customer
     }
 
     /**
-     * retrieves all orders from one user
+     * show info of customer
      *
      * @param integer $id
      * @return bool
@@ -197,6 +197,7 @@ class M_Customer
                         customer_order.shipping_cost,
                         prize.name_prize,
                         product.name_product, 
+                        product.price_product,
                         order_status.name_order_status 
                 FROM customer_order
                 JOIN line_customer ON line_customer.customer_order_id = customer_order.id
@@ -204,6 +205,8 @@ class M_Customer
                 JOIN order_status ON order_status.id = customer_order.order_status_id
                 JOIN prize ON prize.id = line_customer.prize_id
                 JOIN customer ON customer.id = customer_order.customer_id
+                JOIN address ON customer.address_id = address.id
+                JOIN city ON address.city_id = city.id
                 WHERE customer.id = :id";
 
         $pdo = DataAccess::getPdo();

@@ -53,17 +53,17 @@ class M_Product
             $req .= " WHERE category.id IN ($inClauseCat)";
 
             $inClauseCol = "'" . implode("','", $colors) . "'";
-            $req .= " AND color.id IN ($inClauseCol)";
+            $req .= " OR color.id IN ($inClauseCol)";
         }
 
         if (!empty($categories) && empty($colors)) {
             $inClauseCat = "'" . implode("','", $categories) . "'";
-            $req .= " WHERE category.name_category IN ($inClauseCat)";
+            $req .= " WHERE category.id IN ($inClauseCat)";
         }
 
         if (empty($categories) && !empty($colors)) {
             $inClauseCol = "'" . implode("','", $colors) . "'";
-            $req .= " WHERE color.name_color IN ($inClauseCol)";
+            $req .= " WHERE color.id IN ($inClauseCol)";
         }
 
         $pdo = DataAccess::getPdo();
