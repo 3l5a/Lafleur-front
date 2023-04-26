@@ -39,6 +39,7 @@ function addToCart($idProduct, $uc): array
     } elseif ($uc == '') {
         header('Location:index.php');
     }
+
     return $_SESSION['cart'];
 }
 

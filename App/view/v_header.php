@@ -47,7 +47,7 @@
                 <li>
                     <a href="index.php?uc=account&action=visit"><img src="public/assets/basket-icon.svg" alt="accès compte" title="Accès panier" /></a>
                     <?php if (!empty(($_SESSION['cart']))) { ?>
-                            <span>&#10003;</span>
+                            <span><?= array_sum($_SESSION['cart']) ?></span>
                         <?php } ?>
                 </li>
             </ul>

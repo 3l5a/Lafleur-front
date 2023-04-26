@@ -1,29 +1,29 @@
 <?php
 include_once 'App/model/M_Customer.php';
-include_once 'App/model/M_Cart.php';
 include_once 'App/model/M_Order.php';
 
 /**
  * Customer account managing
  */
 switch ($action) {
+    case 'emptyBasket':
+        unset($_SESSION['cart']);
+        header('Location: index.php?uc=account&action=visit');
+        break;
     case 'visit':
         $idCustomer = $_SESSION['customer']['id'];
-        $cartContent = $_SESSION['cart']; // associative array [$idProduct => qty in cart]
+        $cartIds = $_SESSION['cart']; // associative array [$idProduct => qty in cart]
 
         $formerOrders = M_Customer::customerOrderHistory($idCustomer);
 
         $client = M_Customer::show($idCustomer);
 
-        foreach ($cartContent as $id => $qty) {
-            $quantity = $qty;
-            M_Order::findProduct($id);
+        foreach ($cartIds as $id => $qty) {
+            $product = M_Order::findProduct($id);
+            $product['quantity_order_product'] = $qty;
+
+            $cartContent[] = $product;
         }
-
-
-
-
-
         break;
     case 'checkUp': // if customer found : redirect to logIn, else redirect to logUp
         $email = filter_input(INPUT_POST, 'email');

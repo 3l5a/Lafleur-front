@@ -2,6 +2,7 @@
 
 session_start();
 // unset($_SESSION);
+// unset($_SESSION['cart']);
 var_dump($_SESSION['cart']);
 
 // Pour afficher les erreurs PHP
@@ -52,17 +53,19 @@ switch ($uc) {
     case 'account':
         include 'App/controller/c_account.php';
         break;
-    case 'cart':
-        include '';
+
+        //orders
+    case 'order':
+        include 'App/controller/c_order.php' ;
+        break;
+    case 'lottery':
+        include 'App/controller/c_lottery.php';
         break;
 
         //misc
     case 'us':
         break;
     case 'terms':
-        break;
-    case 'lottery':
-        include 'App/controller/c_lottery.php';
         break;
 
     default:

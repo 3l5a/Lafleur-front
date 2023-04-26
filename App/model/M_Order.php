@@ -43,23 +43,49 @@ class M_Order
                 $pdo = DataAccess::getPdo();
                 $stmt = $pdo->prepare($req);
                 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-                $stmt->execute(); 
+                $stmt->execute();
 
-                return $stmt->fetch(PDO::FETCH_ASSOC);
+                return $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
         }
     }
 
     /**
-     * 
+     * create order ref (id)
      *
-     * @return array
+     * @return order id
      */
-    public static function addOrder()
+    public static function addOrder($customerId, $deliveryDate, $statusId, $shippingCost)
     {
-        //1 create order 
-        //2 add order lines
-        //dont forget lottery prize
-        $req = "";
+        $req = "INSERT INTO customer_order (customer_id, delivery_date_customer_order, order_status_id, shipping_cost)
+                VALUES (:customerId, ':deliveryDate', :statusId, :shippingCost)";
+        $pdo = DataAccess::getPdo();
+        $stmt = $pdo->prepare($req);
+        $stmt->bindParam(':customerId', $customerId, PDO::PARAM_INT);
+        $stmt->bindParam(':deliveryDate', $deliveryDate, PDO::PARAM_STR);
+        $stmt->bindParam(':statusId', $statusId, PDO::PARAM_INT);
+        $stmt->bindParam(':shippingCost', $shippingCost, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $pdo->lastInsertId();
+    }
+
+    /**
+     * create order ref (id)
+     *
+     * @return order id
+     */
+    public static function addLineOrder($orderId, $productId, $prizeId, $qty)
+    {
+        $req = "INSERT INTO line_customer (customer_order_id, product_id, prize_id, quantity_line_customer)
+        VALUES (:orderId, :productId, :prizeId, :qty)";
+        $pdo = DataAccess::getPdo();
+        $stmt = $pdo->prepare($req);
+        $stmt->bindParam(':orderId', $orderId, PDO::PARAM_INT);
+        $stmt->bindParam(':productId', $productId, PDO::PARAM_INT);
+        $stmt->bindParam(':prizeId', $prizeId, PDO::PARAM_INT);
+        $stmt->bindParam(':qty', $qty, PDO::PARAM_INT);
+
+        return $stmt->execute();
     }
 }

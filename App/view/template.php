@@ -43,6 +43,14 @@
             include 'App/view/v_cart.php';
             break;
 
+            //orders
+        case 'order':
+            include 'App/view/v_order_success.php';
+            break;
+        case 'lottery':
+            include 'App/view/v_lottery.php';
+            break;
+
             //misc
         case 'us':
             include 'App/view/v_us.php';
@@ -50,10 +58,8 @@
         case 'terms':
             include 'App/view/v_terms.php';
             break;
-        case 'lottery':
-            include 'App/view/v_lottery.php';
         default:
-        header('Location: App/view/404.html');
+            header('Location: App/view/404.html');
             break;
     }
 

@@ -1,7 +1,6 @@
 <?php
 
 include_once 'App/model/M_Product.php';
-include_once 'App/model/M_Cart.php';
 
 switch ($action) {
     case 'catalogue':
