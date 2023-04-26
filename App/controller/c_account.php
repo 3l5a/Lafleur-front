@@ -1,6 +1,7 @@
 <?php
 include_once 'App/model/M_Customer.php';
 include_once 'App/model/M_Cart.php';
+include_once 'App/model/M_Order.php';
 
 /**
  * Customer account managing
@@ -9,13 +10,20 @@ switch ($action) {
     case 'visit':
         $idCustomer = $_SESSION['customer']['id'];
         $cartContent = $_SESSION['cart']; // associative array [$idProduct => qty in cart]
-        //contenu panier //
 
         $formerOrders = M_Customer::customerOrderHistory($idCustomer);
-        //comandes passées //
 
         $client = M_Customer::show($idCustomer);
-        // infos client
+
+        foreach ($cartContent as $id => $qty) {
+            $quantity = $qty;
+            M_Order::findProduct($id);
+        }
+
+
+
+
+
         break;
     case 'checkUp': // if customer found : redirect to logIn, else redirect to logUp
         $email = filter_input(INPUT_POST, 'email');

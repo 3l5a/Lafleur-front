@@ -52,8 +52,8 @@
             break;
         case 'lottery':
             include 'App/view/v_lottery.php';
-
         default:
+        header('Location: App/view/404.html');
             break;
     }
 

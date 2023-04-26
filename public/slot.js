@@ -1,13 +1,3 @@
-/**
-* Slot machine
-* Author: Saurabh Odhyan | http://odhyan.com
-*
-* Licensed under the Creative Commons Attribution-ShareAlike License, Version 3.0 (the "License")
-* You may obtain a copy of the License at
-* http://creativecommons.org/licenses/by-sa/3.0/
-*
-* Date: May 23, 2011 
-*/
 $(document).ready(function() {
     /**
     * Global variables
@@ -34,7 +24,7 @@ $(document).ready(function() {
             1230, //banana
             1298 //cherry
         ];
-    
+
     var win = [];
     win[0] = win[454] = win[913] = 1;
     win[80] = win[539] = win[1000] = 2;

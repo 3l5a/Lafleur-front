@@ -38,7 +38,7 @@ class M_Product
     public static function indexSelected($colors, $categories): array
     {
         //base request
-        $req = "SELECT DISTINCT product.name_product, product.id, product.price_product, product.description_product, product.image_product
+        $req = "SELECT DISTINCT product.name_product, product.id, product.price_product, product.description_product, product.image_product, product.quantity_product
                 FROM product
                 LEFT JOIN product_composition ON product.id = product_composition.product_id
                 LEFT JOIN supplied_item ON product_composition.supplied_item_id = supplied_item.id

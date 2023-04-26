@@ -45,25 +45,30 @@
 
 
 <main class="products">
-<?php foreach ($products as $product) { 
-    if($product['id'] != 12) { //id 12 = placeholder lotery product
-            ?>
-    <div class="card">
-        <a href="index.php?uc=product&action=show&id=<?= $product['id'] ?>" class="card-link">
-            <img src="public/assets/<?= $product['image_product'] ?>" alt="" class="product-image">
-            <div class="bottom-card">
-                <div class="product-specs">
-                    <div class="product-name">
-                        <h5><?= $product['name_product'] ?></h5>
-                        <p>Fleur française</p>
+    <?php foreach ($products as $product) {
+        if ($product['id'] != 12) { //id 12 = placeholder for lotery item
+    ?>
+            <div class="card">
+                <a href="index.php?uc=product&action=show&id=<?= $product['id'] ?>" class="card-link">
+                    <img src="public/assets/<?= $product['image_product'] ?>" alt="" class="product-image">
+                    <div class="bottom-card">
+                        <div class="product-specs">
+                            <div class="product-name">
+                                <h5><?= $product['name_product'] ?></h5>
+                                <p>Fleur française</p>
+                            </div>
+                            <div class="product-price">
+                                <p><span>dès</span> <?= $product['price_product'] ?>€</p>
+                            </div>
+                        </div>
+                        <?php if ($product['quantity_product'] > 1) { ?>
+                            <a class="inactive">PRODUIT ÉPUISÉ</a>
+                        <?php } else { ?>
+                            <a href="index.php?uc=product&action=add&id=<?= $product['id'] ?>" class="inactive">AJOUTER AU PANIER</a>
+                        <?php } ?>
                     </div>
-                    <div class="product-price">
-                        <p><span>dès</span> <?= $product['price_product'] ?>€</p>
-                    </div>
-                </div>
-                <a href="index.php?uc=product&action=add&id=<?= $product['id'] ?>">AJOUTER AU PANIER</a>
+                </a>
             </div>
-        </a>
-    </div>
-    <?php } } ?>
+    <?php }
+    } ?>
 </main>

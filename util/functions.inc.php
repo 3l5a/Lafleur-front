@@ -22,15 +22,24 @@ function emptyCart()
  * add product to cart, increment quantity if product already in cart
  * 
  * @param $idProduct
- * @return bool 
+ * @return associative array 
  */
-function addToCart($idProduct)
+function addToCart($idProduct, $uc): array
 {
-    if (array_key_exists($_SESSION['cart'], $idProduct)) {
+    if (array_key_exists($idProduct, $_SESSION['cart'])) {
         $_SESSION['cart'][$idProduct]++;
-    } else {
-        $_SESSION['cart'][] = $idProduct;
+    } else if (!isset($_SESSION['cart'][$idProduct])){
+        $_SESSION['cart'][$idProduct] = 1;
     }
+
+    if ($uc == 'all') {
+        header('Location:index.php?uc=all&action=catalogue');
+    } elseif ($uc == 'product') {
+        header('Location:index.php?uc=product&action=show&id='.$idProduct);
+    } elseif ($uc == '') {
+        header('Location:index.php');
+    }
+    return $_SESSION['cart'];
 }
 
 /**

@@ -1,9 +1,8 @@
 <?php
 
 session_start();
-//debug :
 // unset($_SESSION);
-// var_dump($_SESSION['customer']);
+var_dump($_SESSION['cart']);
 
 // Pour afficher les erreurs PHP
 error_reporting(E_ALL);
@@ -18,7 +17,7 @@ $customerSession = [];
 
 if (!empty($_SESSION['customer'])) {
     $customerSession = $_SESSION['customer'];
-} // defines $_SESSION in a variable if it exists
+}
 
 $uc = filter_input(INPUT_GET, 'uc');
 $action = filter_input(INPUT_GET, 'action');
@@ -36,6 +35,7 @@ switch ($uc) {
         break;
     case 'all':
         include 'App/controller/c_consultation.php';
+        include 'App/controller/c_manageCart.php';
         break;
     case 'product':
         include 'App/controller/c_consultation.php';

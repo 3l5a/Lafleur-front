@@ -608,30 +608,27 @@ main.products {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  padding: 1.5rem;
 }
 
-.card input {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-
-  width: fit-content;
-  height: 2rem;
-
-  font-family: var(--text);
-  background-color: black;
-  color: white;
-  margin: 0 1.5rem 1.5rem 1.5rem;
-  padding: 0.5rem;
-  border: 2px black solid;
-  /* line-height: -2.5rem; */
-}
-
-.card input,
 h5,
+.card input,
 .product-price {
   font-weight: bolder;
+}
+
+.card .addToCart {
+  background-color: black;
+  color: white;
+  padding: .3rem;
+}
+
+.card .bottom-card {
+  padding: 1rem;
+  height: 80px;
+}
+
+.card .inactive:hover {
+  cursor: auto;
 }
 
 /***************************************************************
