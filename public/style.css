@@ -92,7 +92,8 @@ a:hover {
 }
 
 .nav-container {
-  width: 1024px;
+  max-width: 1024px;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -138,7 +139,8 @@ nav .customer-links {
 /***************************************************************/
 
 main {
-  width: 1024px;
+  max-width: 1024px;
+  width: 80%;
   margin: auto;
 }
 
@@ -386,20 +388,35 @@ h2 {
 
 .category.birth .background {
   background-image: url(assets/flower-birth.jpg);
+  background-position: 25% 100%;
 }
 
 .category.birthday .background {
   background-image: url(assets/rose-jaune.jpg);
 }
-.category.grief .background {
+.category.wedding .background {
   background-image: url(assets/rose-rose.jpg);
+  background-position: 25% 100%;
+
 }
 .category.feels .background {
-  background-image: url(assets/bouquet-roses-rouges.jpg);
+  background-image: url(assets/feels.jpg);
 }
 
 .category.thanks .background {
-  background-image: url(assets/bouquet-roses-roses.jpg);
+  background-image: url(assets/bouquet-roses-rouges.jpg);
+}
+
+.container-category {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.category a.see-more {
+  width: 100%;
+  text-align: center;
+  font-size: 1.4rem;
 }
 
 /***************************************************************
@@ -573,9 +590,9 @@ div.eachColor label {
 main.products {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: flex-start;
+  gap:2rem
 }
-
 /***************************************************************
 /***************************************************************
 /* PRODUCT CARD */
@@ -624,7 +641,7 @@ h5,
 
 .card .bottom-card {
   padding: 1rem;
-  height: 80px;
+  /* min-height: 80px; */
 }
 
 .card .inactive:hover {
@@ -711,15 +728,17 @@ main.lottery {
 .bd {
 	text-align:center;
 }
-.container {
+
+main.lottery .container {
 	margin:0 auto;
 	width:266px;
-}
+} 
+
 .slot-wrapper {
 	 border: 1px solid #000000;
 }
 .slot {
-	background:url("assets/reel_normal.png") repeat-y; 
+	background: url("assets/reel_normal.png") repeat-y; 
 	width:86px;
 	height:70px;
 	float:left;
@@ -727,7 +746,7 @@ main.lottery {
 	background-position:0 4px;
 }
 .motion {
-	background:url("assets/reel_blur.png") repeat-y; 
+	background: url("assets/reel_blur.png") repeat-y; 
 }
 
 button {
@@ -763,7 +782,8 @@ footer {
 
 footer .container {
   place-self: center;
-  width: 1024px;
+  max-width: 1024px;
+  width: 80%;
 }
 
 footer,
@@ -810,7 +830,7 @@ footer h4 {
   margin-bottom: 3px;
 }
 
-.category {
+footer .category {
   display: flex;
   flex-direction: column;
   gap: 20px;

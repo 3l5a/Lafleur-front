@@ -7,7 +7,7 @@ switch ($action) {
         $colorSelected = null;
         $roses = array_slice(M_Product::indexSelected($colorSelected, ["7"]), 0, 4);
         $unitFlowers = array_slice(M_Product::indexSelected($colorSelected, ["6"]), 0,  4);
-        $mothersDay = array_slice(M_Product::indexSelected($colorSelected, ["9"]), 0,  4);
+        $mothersDays = array_slice(M_Product::indexSelected($colorSelected, ["9"]), 0,  4);
     case 'catalogue':
         $colors = M_Product::findColors();
         $categories = M_Product::findCategories();

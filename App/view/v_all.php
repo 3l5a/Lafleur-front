@@ -50,11 +50,11 @@
     ?>
             <div class="card">
                 <a href="index.php?uc=product&action=show&id=<?= $product['id'] ?>" class="card-link">
-                    <img src="public/assets/<?= $product['image_product'] ?>" alt="" class="product-image">
+                    <img src="public/assets/<?= $product['image_product'] ?>" alt="<?= ucfirst($product['name_product']) ?>" class="product-image">
                     <div class="bottom-card">
                         <div class="product-specs">
                             <div class="product-name">
-                                <h5><?= $product['name_product'] ?></h5>
+                                <h5><?= ucfirst($product['name_product']) ?></h5>
                                 <p>Fleur française</p>
                             </div>
                             <div class="product-price">

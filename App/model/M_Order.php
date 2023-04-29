@@ -31,9 +31,9 @@ class M_Order
     }
 
     /**
-     * get ids of products in cart and 
+     * get ids of products in cart 
      */
-    public static function findProduct($id)
+    public static function findProduct($id): array
     {
         if (isset($_SESSION['cart'])) {
             foreach ($_SESSION['cart'] as $id => $qty) {
@@ -45,7 +45,7 @@ class M_Order
                 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
                 $stmt->execute();
 
-                return $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return $stmt->fetch(PDO::FETCH_ASSOC);
             }
         }
     }
@@ -53,9 +53,9 @@ class M_Order
     /**
      * create new order
      *
-     * @return new order id
+     * @return int id of an order
      */
-    public static function addOrder($customerId, $deliveryDate, $statusId, $shippingCost)
+    public static function addOrder($customerId, $deliveryDate, $statusId, $shippingCost): int
     {
         $req = "INSERT INTO customer_order (customer_id, delivery_date_customer_order, order_status_id, shipping_cost)
                 VALUES (:customerId, :deliveryDate, :statusId, :shippingCost)";
@@ -71,11 +71,11 @@ class M_Order
     }
 
     /**
-     * create order ref (id)
+     * create one line of order
      *
-     * @return order id
+     * @return bool if product was correctly inserted in DB
      */
-    public static function addLineOrder($orderId, $productId, $prizeId, $qty)
+    public static function addLineOrder($orderId, $productId, $prizeId, $qty): bool
     {
         $req = "INSERT INTO line_customer (customer_order_id, product_id, prize_id, quantity_line_customer)
         VALUES (:orderId, :productId, :prizeId, :qty)";
