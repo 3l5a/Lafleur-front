@@ -1,6 +1,5 @@
 <main class="cart">
     <?php if ($success) { ?>
-
         <h2> Bravo</div>
         <p>Votre commande est validée !</p>
         <p>Nous vous en remercions.</p>

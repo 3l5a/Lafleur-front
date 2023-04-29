@@ -3,6 +3,7 @@
 session_start();
 // unset($_SESSION);
 // unset($_SESSION['cart']);
+// var_dump($_SESSION['cart']);
 
 // Pour afficher les erreurs PHP
 error_reporting(E_ALL);

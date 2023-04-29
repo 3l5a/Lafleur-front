@@ -69,9 +69,32 @@ class M_Customer
         $addressStmt->bindParam(":address2", $address2, PDO::PARAM_STR);
         $addressStmt->bindParam(":cityId", $cityId, PDO::PARAM_INT);
         $addressStmt->execute(); //bool
-
+        
         return $addressId = $pdo->lastInsertId();
     }
+   
+    /**
+     * find if customer city is deliverable
+     *
+     * @param int $customerId
+     * @return bool
+     */
+    public static function isDeliverable(int $customerId): bool
+    {
+        $req = "SELECT city.deliverable FROM city
+        JOIN address ON address.city_id = city.id
+        JOIN customer ON customer.address_id = address.id
+        WHERE customer.id = :id
+        AND city.deliverable = 1";
+        $pdo = DataAccess::getPdo();
+        $stmt =$pdo->prepare($req);
+        $stmt->bindParam(':id', $customerId, PDO::PARAM_INT);
+        $stmt->execute();
+        $res = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $res ? true : false;
+    }
+
 
     /**
      * add a customer's informations to the DB

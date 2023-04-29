@@ -38,8 +38,6 @@ function addToCart($idProduct, $uc): array
         header('Location:index.php?uc=product&action=show&id='.$idProduct);
     } elseif ($uc == '') {
         header('Location:index.php');
-    } elseif ($uc == 'home') {
-        header('Location:index.php');
     }
 
     return $_SESSION['cart'];
@@ -50,7 +48,7 @@ function addToCart($idProduct, $uc): array
  *
  * @return : array of product IDs
  */
-function getCartId(): array
+function getCartId()
 {
     return $_SESSION['cart'];
 }
@@ -61,7 +59,7 @@ function getCartId(): array
  * if cart session exists, returns its length
  * @return : length/count
  */
-function cartCount(): int
+function cartCount()
 {
     $n = 0;
     if (isset($_SESSION['cart'])) {

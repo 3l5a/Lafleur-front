@@ -1,7 +1,26 @@
 <?php
 
+/**
+ * all you need to display one or more products according to category and/or color
+ */
 class M_Product
 {
+    /**
+     * add prices of all product
+     *
+     * @return float
+     */
+    public static function totalPrice(): float
+    {
+        $priceBeforeDelivery = 0;
+        foreach ($_SESSION['cart'] as $productId => $qty) {
+            $product = M_Product::showOne($productId);
+            $price = $product['price_product'] * $qty;
+            $priceBeforeDelivery += $price;
+        }
+        return $priceBeforeDelivery;
+    }
+
     /**
      * Find all color names and codes
      *
@@ -86,42 +105,5 @@ class M_Product
         $stmt->execute();
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
-    /////////////////////////////////////////////// LOG 
-    /**
-     * Retourne les jeux concernés par le tableau des idProduits passé en argument
-     *
-     * @param $someProducts tableau d'idProduits
-     * @return un tableau associatif
-     */
-    public static function trouveLesJeuxDuTableau(array $someProducts)
-    {
-        $nbProduits = count($someProducts);
-        $lesProduits = array();
-        if ($nbProduits != 0) {
-            foreach ($someProducts as $unIdProduit) {
-                $req = "SELECT exemplaires.*, references_jeux.titre, etats.nom_etat FROM exemplaires 
-                        WHERE exemplaires.id = :id";
-                $pdo = DataAccess::getPdo();
-                $stmt = $pdo->prepare($req);
-                $stmt->bindParam(':id', $unIdProduit, PDO::PARAM_INT);
-                $stmt->execute();
-
-                $unProduit = $stmt->fetch();
-                $lesProduits[] = $unProduit;
-            }
-        }
-        return $lesProduits;
-    }
-
-    /**
-     * returns 4 products among one category
-     *
-     * @param [type] $allProducts
-     * @return [type] 4 products
-     */
-    public static function randomProducts(int $allProducts)
-    {
     }
 }

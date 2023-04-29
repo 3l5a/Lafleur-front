@@ -10,16 +10,10 @@ switch ($action) {
         $deliveryDate =  new DateTime();
         $deliveryDate =  $deliveryDate->format('Y-m-d H:i:s');
 
-
-        $priceBeforeDelivery = 0;
-        foreach ($_SESSION['cart'] as $productId => $qty) {
-            $product = M_Product::showOne($productId);
-            $price = $product['price_product'] * $qty;
-            $priceBeforeDelivery += $price;
-        }
+        $totalPrice = M_Product::totalPrice();
 
         // shipping cost is a bool
-        if ($priceBeforeDelivery > 50) {
+        if ($totalPrice > 50) {
             $shippingCost = 0;
         } else {
             $shippingCost = 1;
@@ -30,12 +24,8 @@ switch ($action) {
         foreach ($_SESSION['cart'] as $productId => $qty) {
             $prizeId = 6;
             $success = M_Order::addLineOrder($orderId, $productId, $prizeId, $qty);
-            var_dump($orderId);
-            var_dump($productId);
-            var_dump($prizeId);
-            var_dump($qty);
         }
-
+        unset($_SESSION['cart']);
         break;
     default:
         break;

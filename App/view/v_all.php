@@ -41,9 +41,6 @@
     </form>
 </section>
 
-
-
-
 <main class="products">
     <?php foreach ($products as $product) {
         if ($product['id'] != 12) { //id 12 = placeholder for lotery item
@@ -58,16 +55,18 @@
                                 <p>Fleur française</p>
                             </div>
                             <div class="product-price">
-                                <p><span>dès</span> <?= number_format($product['price_product'], 2, ',', '') ?>€</p>
+                                <p><?= number_format($product['price_product'], 2, ',', '') ?>€</p>
                             </div>
                         </div>
-                        <?php if ($product['quantity_product'] > 1) { ?>
-                            <a href="index.php?uc=product&action=add&id=<?= $product['id'] ?>">AJOUTER AU PANIER</a>
-                            <?php } else { ?>
-                                <a class="inactive">PRODUIT ÉPUISÉ</a>
-                        <?php } ?>
-                    </div>
                 </a>
+                <div class="call-to-action">
+                    <?php if ($product['quantity_product'] > 1) { ?>
+                        <a href="index.php?uc=all&action=add&id=<?= $product['id'] ?>" class="addToCart">AJOUTER AU PANIER</a>
+                    <?php } else { ?>
+                        <a class="addToCart inactive">PRODUIT ÉPUISÉ</a>
+                    <?php } ?>
+                </div>
+            </div>
             </div>
     <?php }
     } ?>

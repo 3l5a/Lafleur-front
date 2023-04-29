@@ -69,14 +69,16 @@
                                     <p>Fleur française</p>
                                 </div>
                                 <div class="product-price">
-                                    <p><span>dès</span> <?= number_format($rose['price_product'], 2, ',', '') ?>€</p>
+                                    <p><?= number_format($rose['price_product'], 2, ',', '') ?>€</p>
                                 </div>
                             </div>
-                            <?php if ($rose['quantity_product'] > 1) { ?>
-                                <a href="index.php?uc=product&action=add&id=<?= $rose['id'] ?>">AJOUTER AU PANIER</a>
+                            <div class="call-to-action">
+                                <?php if ($rose['quantity_product'] > 1) { ?>
+                                    <a href="index.php?uc=product&action=add&id=<?= $rose['id'] ?>" class="addToCart">AJOUTER AU PANIER</a>
                                 <?php } else { ?>
-                                    <a class="inactive">PRODUIT ÉPUISÉ</a>
-                            <?php } ?>
+                                    <a class="addToCart inactive">PRODUIT ÉPUISÉ</a>
+                                <?php } ?>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -100,14 +102,16 @@
                                     <p>Fleur française</p>
                                 </div>
                                 <div class="product-price">
-                                    <p><span>dès</span> <?= number_format($unitFlower['price_product'], 2, ',', '') ?>€</p>
+                                    <p><?= number_format($unitFlower['price_product'], 2, ',', '') ?>€</p>
                                 </div>
                             </div>
-                            <?php if ($unitFlower['quantity_product'] > 1) { ?>
-                                <a href="index.php?uc=product&action=add&id=<?= $unitFlower['id'] ?>">AJOUTER AU PANIER</a>
+                            <div class="call-to-action">
+                                <?php if ($unitFlower['quantity_product'] > 1) { ?>
+                                    <a href="index.php?uc=product&action=add&id=<?= $unitFlower['id'] ?>" class="addToCart">AJOUTER AU PANIER</a>
                                 <?php } else { ?>
-                                    <a class="inactive">PRODUIT ÉPUISÉ</a>
-                            <?php } ?>
+                                    <a class="addToCart inactive">PRODUIT ÉPUISÉ</a>
+                                <?php } ?>
+                            </div>
                         </div>
                     </a>
                 </div>
@@ -131,14 +135,16 @@
                                     <p>Fleur française</p>
                                 </div>
                                 <div class="product-price">
-                                    <p><span>dès</span> <?= number_format($mothersDay['price_product'], 2, ',', '') ?>€</p>
+                                    <p><?= number_format($mothersDay['price_product'], 2, ',', '') ?>€</p>
                                 </div>
                             </div>
-                            <?php if ($mothersDay['quantity_product'] > 1) { ?>
-                                <a href="index.php?uc=product&action=add&id=<?= $mothersDay['id'] ?>">AJOUTER AU PANIER</a>
-                            <?php } else { ?>
-                                    <a class="inactive">PRODUIT ÉPUISÉ</a>
-                            <?php } ?>
+                            <div class="call-to-action">
+                                <?php if ($mothersDay['quantity_product'] > 1) { ?>
+                                    <a href="index.php?uc=product&action=add&id=<?= $mothersDay['id'] ?>" class="addToCart">AJOUTER AU PANIER</a>
+                                <?php } else { ?>
+                                    <a class="addToCart inactive">PRODUIT ÉPUISÉ</a>
+                                <?php } ?>
+                            </div>
                         </div>
                     </a>
                 </div>

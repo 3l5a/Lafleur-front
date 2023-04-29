@@ -31,26 +31,6 @@ class M_Order
     }
 
     /**
-     * get ids of products in cart 
-     */
-    public static function findProduct($id): array
-    {
-        if (isset($_SESSION['cart'])) {
-            foreach ($_SESSION['cart'] as $id => $qty) {
-                $req = "SELECT product.name_product, product.price_product, product.image_product, product.id, product.quantity_product 
-                FROM product
-                WHERE product.id = :id";
-                $pdo = DataAccess::getPdo();
-                $stmt = $pdo->prepare($req);
-                $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-                $stmt->execute();
-
-                return $stmt->fetch(PDO::FETCH_ASSOC);
-            }
-        }
-    }
-
-    /**
      * create new order
      *
      * @return int id of an order

@@ -3,14 +3,49 @@
     <!-- cart content -->
     <container class="cart">
         <h4>Votre panier</h4>
-        <a href="index.php?uc=account&action=emptyBasket">Vider le panier</a><br>
-        <?php if(isset($cartContent)) {
-        foreach($cartContent as $product) {
-            echo $product[0]['name_product'];
-        }} ?>
-        <label for="deliveryDdate"> Date de livraison :</label>
-        <input type="date" name="" id="deliveryDate" min="<?= date('Y-m-d', strtotime('+1 day')) ?>" value="<?= date('Y-m-d', strtotime('+1 day')) ?>">
-        <br><a href="index.php?uc=order&action=placeOrder">Passer commande</a>
+        <a href="index.php?uc=account&action=emptyBasket" class="unset">Vider le panier</a><br>
+        <?php 
+        if(isset($cartContent)) {
+        foreach($cartContent as $product) { ?>
+            <div class="product-recap">
+                <a href="index.php?uc=product&action=show&id=<?= $product['id'] ?>" alt="Voir <?= $product['name_product'] ?>">
+                    <img src="public/assets/<?= $product['image_product'] ?>" alt="<?= $product['name_product'] ?>" class="image-cart">
+                </a>
+                <div class="qty-price">
+                    <p><?= $product['quantity_order_product'] ?> x <?= $product['name_product'] ?></p>
+                    <p><?= number_format($product['price_product'], 2, ',', '') ?>€ l'unité</p>
+                </div>
+                <a href="index.php?account&action=remove&id=<?= $product['id'] ?>"><img src="public/assets/bin.svg" alt="Supprimer le produit"></a>
+            </div>
+            <?php } ?>
+            <?php if($deliverable) { ?>
+            <p>Récapitulatif</p>
+            <div class="recap">
+                <p>Sous-total</p>
+                <p><?= number_format($totalPrice, 2, ',', '') ?>€</p>
+            </div>
+            <div class="recap">
+                <p>Livraison</p>
+                <p>
+                    <?= $shippingCost ? "2,99€" : "Offert"; ?>
+                </p>
+            </div>
+            <div class="big recap">
+                <p>Total</p>
+                <p>
+                    <?php $shippingCost ? $totalPrice += 2.99 : $totalPrice;
+                    echo number_format($totalPrice, 2, ',', '').'€'; ?>
+                </p>
+            </div>
+            <label for="deliveryDdate"> Date de livraison :</label>
+            <input type="date" name="" id="deliveryDate" min="<?= date('Y-m-d', strtotime('+1 day')) ?>" value="<?= date('Y-m-d', strtotime('+1 day')) ?>">
+            <a href="index.php?uc=order&action=placeOrder" alt="Commander" class="order">Passer commande</a>
+            <?php } else { ?>
+                <p>Malheureusement nous ne livrons pas chez vous...</p>
+            <?php }
+        } else { ?>
+        <p>Votre panier est vide</p>
+        <?php } ?>
     </container>
 
     <!-- customer details -->

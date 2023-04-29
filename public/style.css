@@ -11,6 +11,7 @@
   --text-size-desktop: 1.5rem;
   --heading-size-mobile: 2rem;
   --heading-size-desktop: 3rem;
+  --subtle-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
 }
 
 body {
@@ -23,9 +24,13 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 3px 15px rgba(163, 163, 163, 0.124);
+  box-shadow: var(--subtle-shadow);
   background-color: white;
+  /* position: sticky;
+  top: 0; */
 }
+
+
 
 a {
   color: black;
@@ -70,7 +75,6 @@ a:hover {
 }
 
 .logo-desktop {
-  width: 100svw;
   display: grid;
   place-items: center;
   background-color: var(--header-light-pink);
@@ -134,6 +138,52 @@ nav .customer-links {
 }
 /***************************************************************
 /***************************************************************
+/* SHOW PRODUCT */
+/***************************************************************
+/***************************************************************/
+main.product {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 4rem;
+  gap: 5%;
+}
+
+main.product img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  box-shadow: var(--subtle-shadow);
+}
+
+main.product .title {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bolder;
+}
+
+main.product .title h3 {
+  font-size: 1.6rem;
+  color: var(--lafleur-dark);
+  margin-bottom: 1.5rem;
+}
+
+main.product .specs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+main.product .specs p:first-child {
+  font-size: 1.3rem;
+}
+
+main.product .addToCart {
+  height: 2rem;
+  line-height: 2rem;
+}
+
+/***************************************************************
+/***************************************************************
 /* MAIN */
 /***************************************************************
 /***************************************************************/
@@ -155,7 +205,7 @@ h2 {
   font-size: 2.2rem;
   text-align: center;
   background-color: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--subtle-shadow);
 }
 
 /***************************************************************
@@ -352,6 +402,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .events a .category {
@@ -370,7 +421,7 @@ h2 {
 .events p {
   font-weight: bolder;
   font-size: 1.5rem;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(1px);
 }
 
 .category .background,
@@ -387,24 +438,27 @@ h2 {
 }
 
 .category.birth .background {
-  background-image: url(assets/flower-birth.jpg);
+  background-image: url(assets/naissance.jpg);
   background-position: 25% 100%;
 }
 
 .category.birthday .background {
-  background-image: url(assets/rose-jaune.jpg);
-}
-.category.wedding .background {
-  background-image: url(assets/rose-rose.jpg);
+  background-image: url(assets/anniversaire.jpg);
   background-position: 25% 100%;
 
 }
+.category.wedding .background {
+  background-image: url(assets/mariage.jpg);
+  background-position: 100%;
+}
 .category.feels .background {
-  background-image: url(assets/feels.jpg);
+  background-image: url(assets/amour2.jpg);
+  background-position: 100%;
 }
 
 .category.thanks .background {
-  background-image: url(assets/bouquet-roses-rouges.jpg);
+  background-image: url(assets/remerciements.jpg);
+  background-position: 100%;
 }
 
 .container-category {
@@ -503,7 +557,8 @@ section.user-choices {
 }
 
 .user-choices .choices {
-  width: 1024px;
+  max-width: 1024px;
+  width: 80%;
   margin: auto;
   display: flex;
   gap: 25px;
@@ -591,7 +646,7 @@ main.products {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  gap:2rem
+  gap: 2rem;
 }
 /***************************************************************
 /***************************************************************
@@ -600,14 +655,14 @@ main.products {
 /***************************************************************/
 
 .card {
-  background-color: white;
   width: 22%;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   font-size: 0.8rem;
-  box-shadow: 2px 2px 10px rgba(173, 173, 173, 0.387);
+  box-shadow: var(--subtle-shadow);
+  background-color: white;
 }
 
 .card a {
@@ -617,6 +672,7 @@ main.products {
 .card .product-image {
   width: 100%;
   aspect-ratio: 1/1;
+  object-fit: cover;
   border-radius: 4px 4px 0 0;
   background-image: url(assets/pink-roses.jpg);
 }
@@ -624,7 +680,12 @@ main.products {
 .product-specs {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: start; /* items stick to top of div */
+}
+
+.product-specs .product-name p {
+  font-size: 0.7rem;
+  padding-top: 0.3rem;
 }
 
 h5,
@@ -633,19 +694,37 @@ h5,
   font-weight: bolder;
 }
 
-.card .addToCart {
+.card .call-to-action {
+  width: 100%;
+  display: grid;
+  place-items: end;
+}
+
+.addToCart {
   background-color: black;
   color: white;
-  padding: .3rem;
+  padding: 0.4rem;
+  text-align: center;
+}
+
+.addToCart:hover {
+  text-decoration: none;
+}
+
+.addToCart.inactive {
+  background-color: rgba(0, 0, 0, 0.295);
+}
+
+.addToCart.inactive:hover {
+  cursor: auto;
 }
 
 .card .bottom-card {
+  min-height: 90px;
   padding: 1rem;
-  /* min-height: 80px; */
-}
-
-.card .inactive:hover {
-  cursor: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /***************************************************************
@@ -678,8 +757,9 @@ main.account {
   margin-bottom: 1.5rem;
 }
 
-.account .cart {
+.account .cart:not(.unset) {
   grid-area: b;
+  font-weight: bolder;
 }
 
 .account .customer-details {
@@ -692,7 +772,7 @@ main.account {
 }
 
 .customer-details div * {
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 }
 
 .account .past-orders {
@@ -701,7 +781,7 @@ main.account {
 
 .account h5 {
   font-weight: bolder;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 }
 
 .account .order-info {
@@ -714,6 +794,34 @@ main.account {
   line-height: 1.2rem;
 }
 
+.account .image-cart {
+  width: 5rem;
+}
+
+.product-recap {
+  border-bottom: 1px black solid;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="date"] {
+  width: 100%;
+  border: solid 1px black;
+  border-radius: 0;
+  padding: 0.4rem;
+  font-family: var(--text);
+  font-weight: bolder;
+}
+
+.account .order {
+  background-color: black;
+  color: black;
+}
+
+.qty-price p:first-child {
+  font-size: 1.1rem;
+}
 
 /***************************************************************
 /***************************************************************
@@ -726,46 +834,46 @@ main.lottery {
 }
 
 .bd {
-	text-align:center;
+  text-align: center;
 }
 
 main.lottery .container {
-	margin:0 auto;
-	width:266px;
-} 
+  margin: 0 auto;
+  width: 266px;
+}
 
 .slot-wrapper {
-	 border: 1px solid #000000;
+  border: 1px solid #000000;
 }
 .slot {
-	background: url("assets/reel_normal.png") repeat-y; 
-	width:86px;
-	height:70px;
-	float:left;
-	border:1px solid #000;
-	background-position:0 4px;
+  background: url("assets/reel_normal.png") repeat-y;
+  width: 86px;
+  height: 70px;
+  float: left;
+  border: 1px solid #000;
+  background-position: 0 4px;
 }
 .motion {
-	background: url("assets/reel_blur.png") repeat-y; 
+  background: url("assets/reel_blur.png") repeat-y;
 }
 
 button {
-	display:block;
-	width:138px;
-	height:33px;
-	margin:20px 60px;
-	font-size:16px;
-	cursor:pointer;
+  display: block;
+  width: 138px;
+  height: 33px;
+  margin: 20px 60px;
+  font-size: 16px;
+  cursor: pointer;
 }
 #result {
-	margin:20px 0;
-	font-size:18px;
-	font-weight:bold;
-	height:22px;
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: bold;
+  height: 22px;
 }
 
 .clear {
-	clear:both;
+  clear: both;
 }
 /***************************************************************
 /***************************************************************
@@ -773,7 +881,6 @@ button {
 /***************************************************************
 /***************************************************************/
 footer {
-  width: 100svw;
   display: grid;
   padding: 35px 15px;
   box-sizing: border-box;
@@ -858,6 +965,14 @@ footer .category {
 
 /* responsive mobiles */
 @media (max-width: 480px) {
+
+  main {
+    width: 100vw;
+  }
+  .nav-container {
+    width: 100%;
+  }
+
   .store-info {
     height: 1.5rem;
     font-size: 0.7rem;
@@ -980,5 +1095,27 @@ footer .category {
 
   .category {
     line-height: 0.5rem;
+  }
+
+/***************************************************************
+/***************************************************************
+/* SHOW PRODUCT */
+/***************************************************************
+/***************************************************************/
+  main.product {
+    margin-top: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5%;
+  }
+  main.product img {
+    width: 100%;
+  }
+
+  .user-choices .choices {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px;
   }
 }

@@ -1,6 +1,7 @@
 <?php
-include_once 'App/model/M_Customer.php';
 include_once 'App/model/M_Order.php';
+include_once 'App/model/M_Product.php';
+include_once 'App/model/M_Customer.php';
 
 /**
  * Customer account managing
@@ -8,6 +9,11 @@ include_once 'App/model/M_Order.php';
 switch ($action) {
     case 'emptyBasket':
         unset($_SESSION['cart']);
+        header('Location: index.php?uc=account&action=visit');
+        break;
+    case 'remove':
+        $idProduct = filter_input(INPUT_POST, 'id');
+        removeFromCart($idProduct);
         header('Location: index.php?uc=account&action=visit');
         break;
     case 'visit':
@@ -19,11 +25,22 @@ switch ($action) {
         $client = M_Customer::show($idCustomer);
 
         foreach ($cartIds as $id => $qty) {
-            $product = M_Order::findProduct($id);
+            $product = M_Product::showOne($id);
             $product['quantity_order_product'] = $qty;
 
-            $cartContent[] = $product;
+            $cartContent[$id] = $product;
         }
+
+        $totalPrice = M_Product::totalPrice();
+
+        // shipping cost is a bool
+        if ($totalPrice > 50) {
+            $shippingCost = 0;
+        } else {
+            $shippingCost = 1;
+        }
+
+        $deliverable = M_Customer::isDeliverable($_SESSION['customer']['id']);
         break;
     case 'checkUp': // if customer found : redirect to logIn, else redirect to logUp
         $email = filter_input(INPUT_POST, 'email');
