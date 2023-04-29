@@ -3,6 +3,11 @@
 include_once 'App/model/M_Product.php';
 
 switch ($action) {
+    case '':
+        $colorSelected = null;
+        $roses = array_slice(M_Product::indexSelected($colorSelected, ["7"]), 0, 4);
+        $unitFlowers = array_slice(M_Product::indexSelected($colorSelected, ["6"]), 0,  4);
+        $mothersDay = array_slice(M_Product::indexSelected($colorSelected, ["9"]), 0,  4);
     case 'catalogue':
         $colors = M_Product::findColors();
         $categories = M_Product::findCategories();
@@ -17,6 +22,15 @@ switch ($action) {
         } else {
             $categorySelected = null;
         }
+
+        $products = M_Product::indexSelected($colorSelected, $categorySelected);
+        break;
+    case 'mothersday':
+        $colors = M_Product::findColors();
+        $categories = M_Product::findCategories();
+
+        $colorSelected = null;
+        $categorySelected = ["9"];
 
         $products = M_Product::indexSelected($colorSelected, $categorySelected);
         break;

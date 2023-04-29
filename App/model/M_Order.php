@@ -27,7 +27,7 @@ class M_Order
         $stmt2->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt2->execute();
 
-        $dbQty = $stmt2->fetch(PDO::FETCH_ASSOC);
+        return $stmt2->fetch(PDO::FETCH_ASSOC);
     }
 
     /**
@@ -51,14 +51,14 @@ class M_Order
     }
 
     /**
-     * create order ref (id)
+     * create new order
      *
-     * @return order id
+     * @return new order id
      */
     public static function addOrder($customerId, $deliveryDate, $statusId, $shippingCost)
     {
         $req = "INSERT INTO customer_order (customer_id, delivery_date_customer_order, order_status_id, shipping_cost)
-                VALUES (:customerId, ':deliveryDate', :statusId, :shippingCost)";
+                VALUES (:customerId, :deliveryDate, :statusId, :shippingCost)";
         $pdo = DataAccess::getPdo();
         $stmt = $pdo->prepare($req);
         $stmt->bindParam(':customerId', $customerId, PDO::PARAM_INT);

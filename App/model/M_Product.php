@@ -43,7 +43,7 @@ class M_Product
                 LEFT JOIN product_composition ON product.id = product_composition.product_id
                 LEFT JOIN supplied_item ON product_composition.supplied_item_id = supplied_item.id
                 LEFT JOIN color ON supplied_item.color_id = color.id
-                LEFT JOIN product_category ON product.id = product_category.category_id
+                LEFT JOIN product_category ON product.id = product_category.product_id
                 LEFT JOIN category ON product_category.category_id = category.id";
 
 

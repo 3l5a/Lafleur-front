@@ -207,7 +207,8 @@ class M_Customer
                 JOIN customer ON customer.id = customer_order.customer_id
                 JOIN address ON customer.address_id = address.id
                 JOIN city ON address.city_id = city.id
-                WHERE customer.id = :id";
+                WHERE customer.id = :id
+                ORDER BY customer_order.date_customer_order DESC";
 
         $pdo = DataAccess::getPdo();
         $stmt = $pdo->prepare($req);

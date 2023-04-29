@@ -6,8 +6,10 @@ include_once 'App/model/M_Product.php';
 switch ($action) {
     case 'placeOrder':
         $customerId = $_SESSION['customer']['id'];
+        $deliveryDate = filter_input(INPUT_POST, 'deliveryDate');
         $deliveryDate =  new DateTime();
-        $deliveryDate =  $deliveryDate->format('Y-m-d H:i:s');;
+        $deliveryDate =  $deliveryDate->format('Y-m-d H:i:s');
+
 
         $priceBeforeDelivery = 0;
         foreach ($_SESSION['cart'] as $productId => $qty) {
@@ -23,18 +25,15 @@ switch ($action) {
             $shippingCost = 1;
         }
 
-        echo "<br>";
-        var_dump($customerId); 
-        echo "<br>";
-        var_dump($deliveryDate);
-        echo "<br>";
-        var_dump($shippingCost);
-        echo "<br>";
-        $orderId = M_Order::addOrder($customerId, $deliveryDate, 3, $shippingCost);
+        $orderId = M_Order::addOrder($customerId, $deliveryDate, 3 , $shippingCost);
 
         foreach ($_SESSION['cart'] as $productId => $qty) {
-            $prizeId = 12;
-            return $success = M_Order::addLineOrder($orderId, $productId, $prizeId, $qty);
+            $prizeId = 6;
+            $success = M_Order::addLineOrder($orderId, $productId, $prizeId, $qty);
+            var_dump($orderId);
+            var_dump($productId);
+            var_dump($prizeId);
+            var_dump($qty);
         }
 
         break;

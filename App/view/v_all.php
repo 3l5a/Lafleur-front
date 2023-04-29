@@ -58,13 +58,13 @@
                                 <p>Fleur française</p>
                             </div>
                             <div class="product-price">
-                                <p><span>dès</span> <?= $product['price_product'] ?>€</p>
+                                <p><span>dès</span> <?= number_format($product['price_product'], 2, ',', '') ?>€</p>
                             </div>
                         </div>
                         <?php if ($product['quantity_product'] > 1) { ?>
-                            <a class="inactive">PRODUIT ÉPUISÉ</a>
-                        <?php } else { ?>
-                            <a href="index.php?uc=product&action=add&id=<?= $product['id'] ?>" class="inactive">AJOUTER AU PANIER</a>
+                            <a href="index.php?uc=product&action=add&id=<?= $product['id'] ?>">AJOUTER AU PANIER</a>
+                            <?php } else { ?>
+                                <a class="inactive">PRODUIT ÉPUISÉ</a>
                         <?php } ?>
                     </div>
                 </a>
