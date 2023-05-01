@@ -59,7 +59,7 @@
             include 'App/view/v_terms.php';
             break;
         default:
-            header('Location: App/view/404.html');
+            header('Location: App/view/404.php');
             break;
     }
 

@@ -74,7 +74,7 @@
                             </div>
                             <div class="call-to-action">
                                 <?php if ($rose['quantity_product'] > 1) { ?>
-                                    <a href="index.php?uc=product&action=add&id=<?= $rose['id'] ?>" class="addToCart">AJOUTER AU PANIER</a>
+                                    <a href="index.php?uc=home&action=add&id=<?= $rose['id'] ?>" class="addToCart">AJOUTER AU PANIER</a>
                                 <?php } else { ?>
                                     <a class="addToCart inactive">PRODUIT ÉPUISÉ</a>
                                 <?php } ?>
@@ -85,7 +85,7 @@
             <?php } ?>
         </div>
         <a href="index.php?uc=all&action=roses" alt="Catégories roses" class="see-more">
-            <p>Voir la suite</p>
+            <p class="next">Voir la suite</p>
         </a>
     </div>
     <div class="category unit">
@@ -107,7 +107,7 @@
                             </div>
                             <div class="call-to-action">
                                 <?php if ($unitFlower['quantity_product'] > 1) { ?>
-                                    <a href="index.php?uc=product&action=add&id=<?= $unitFlower['id'] ?>" class="addToCart">AJOUTER AU PANIER</a>
+                                    <a href="index.php?uc=home&action=add&id=<?= $unitFlower['id'] ?>" class="addToCart">AJOUTER AU PANIER</a>
                                 <?php } else { ?>
                                     <a class="addToCart inactive">PRODUIT ÉPUISÉ</a>
                                 <?php } ?>
@@ -140,7 +140,7 @@
                             </div>
                             <div class="call-to-action">
                                 <?php if ($mothersDay['quantity_product'] > 1) { ?>
-                                    <a href="index.php?uc=product&action=add&id=<?= $mothersDay['id'] ?>" class="addToCart">AJOUTER AU PANIER</a>
+                                    <a href="index.php?uc=home&action=add&id=<?= $mothersDay['id'] ?>" class="addToCart">AJOUTER AU PANIER</a>
                                 <?php } else { ?>
                                     <a class="addToCart inactive">PRODUIT ÉPUISÉ</a>
                                 <?php } ?>

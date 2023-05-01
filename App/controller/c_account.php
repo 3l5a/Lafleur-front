@@ -42,13 +42,11 @@ switch ($action) {
 
         $deliverable = M_Customer::isDeliverable($_SESSION['customer']['id']);
         break;
-    case 'checkUp': // if customer found : redirect to logIn, else redirect to logUp
+    case 'checkUp': // customer found ? logIn : logUp
         $email = filter_input(INPUT_POST, 'email');
         $customer = M_Customer::isCustomer($email);
 
         $_SESSION['customer'] = $customer; //only puts email in session
-        $customerSession = $_SESSION['customer'];
-
         $_SESSION['customerEmail'] = $email;
         header('Location: index.php?uc=log');
         break;
@@ -91,7 +89,7 @@ switch ($action) {
         $customer = M_Customer::logIn($email, $password);
 
         if (!empty($customer)) {
-            displayMessage("Bienvenue customer");
+            displayMessage("Bienvenue '.$customer.' !");
             $_SESSION['customer'] = $customer;
             header('Location: index.php');
         } else {

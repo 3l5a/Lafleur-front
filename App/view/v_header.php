@@ -32,23 +32,28 @@
             </div>
             <ul class="customer-links">
                 <li>
-                    <?php if (!empty(($_SESSION['customer'])) && count($_SESSION['customer'])>1) { ?>
-                    <a href="index.php?uc=account&action=visit"> 
-                    <?php } else { ?>
-                    <a href="index.php?uc=isRegistered">
-                    <?php } ?>
-                        <img src="public/assets/customer-icon.svg" alt="accès compte" title="Accès compte" />
-                        <?php if (!empty(($_SESSION['customer'])) && count($_SESSION['customer'])>1) { ?>
-                            <span>&#10003;</span>
-                        <?php } ?>
+                    <?php if (!empty(($_SESSION['customer'])) && count($_SESSION['customer']) > 1) { ?>
+                        <a href="index.php?uc=account&action=visit" alt="Accès compte" title="Accès compte">
+                        <?php } else { ?>
+                            <a href="index.php?uc=isRegistered">
+                            <?php } ?>
+                            <img src="public/assets/customer-icon.svg" alt="accès compte" title="Accès compte" />
+                            <?php if (!empty(($_SESSION['customer'])) && count($_SESSION['customer']) > 1) { ?>
+                                <span>&#10003;</span>
+                            <?php } ?>
 
-                    </a>
+                            </a>
                 </li>
                 <li>
-                    <a href="index.php?uc=account&action=visit"><img src="public/assets/basket-icon.svg" alt="accès compte" title="Accès panier" /></a>
-                    <?php if (!empty(($_SESSION['cart']))) { ?>
-                            <span><?= array_sum($_SESSION['cart']) ?></span>
-                        <?php } ?>
+                    <?php if (!empty(($_SESSION['customer'])) && count($_SESSION['customer']) > 1) { ?>
+                        <a href="index.php?uc=account&action=visit">
+                        <?php } else { ?>
+                            <a href="index.php?uc=isRegistered">
+                            <?php } ?>
+                            <img src="public/assets/basket-icon.svg" alt="accès compte" title="Accès panier" /></a>
+                            <?php if (!empty(($_SESSION['cart']))) { ?>
+                                <span><?= array_sum($_SESSION['cart']) ?></span>
+                            <?php } ?>
                 </li>
             </ul>
         </div>

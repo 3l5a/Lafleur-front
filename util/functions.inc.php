@@ -36,7 +36,7 @@ function addToCart($idProduct, $uc): array
         header('Location:index.php?uc=all&action=catalogue');
     } elseif ($uc == 'product') {
         header('Location:index.php?uc=product&action=show&id='.$idProduct);
-    } elseif ($uc == '') {
+    } elseif ($uc == 'home') {
         header('Location:index.php');
     }
 

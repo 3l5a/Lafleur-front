@@ -72,7 +72,7 @@ class M_Product
             $req .= " WHERE category.id IN ($inClauseCat)";
 
             $inClauseCol = "'" . implode("','", $colors) . "'";
-            $req .= " OR color.id IN ($inClauseCol)";
+            $req .= " AND color.id IN ($inClauseCol)";
         }
 
         if (!empty($categories) && empty($colors)) {

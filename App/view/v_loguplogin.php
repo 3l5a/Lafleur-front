@@ -1,5 +1,5 @@
 <main class="connection">
-        <?php if (!empty($customerSession)) { ?>
+        <?php if (!empty($_SESSION['customer'])) { ?>
             <div class="login log">
                 <h3>Se connecter</h3>
                 <form action="index.php?uc=log&action=logIn" method="POST">

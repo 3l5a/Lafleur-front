@@ -155,12 +155,12 @@ class M_Customer
         $customer = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($customer) {
-            $hashedPassword = $customer['password'];
+            $hashedPassword = $customer['password_customer'];
             if (password_verify($password, $hashedPassword)) {
-                //unset($customer['email']); //remove password from session variable for security
+                return $customer;
             };
         }
-        return $customer;
+        return $customer = "";
     }
 
     /**

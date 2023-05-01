@@ -3,7 +3,7 @@
 session_start();
 // unset($_SESSION);
 // unset($_SESSION['cart']);
-// var_dump($_SESSION['cart']);
+var_dump($_SESSION['customer']);
 
 // Pour afficher les erreurs PHP
 error_reporting(E_ALL);
@@ -62,6 +62,8 @@ switch ($uc) {
         break;
 
         //misc
+    case 'lottery':
+        include 'App/controller/c_lottery.php';
     case 'us':
         break;
     case 'terms':
