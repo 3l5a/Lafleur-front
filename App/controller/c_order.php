@@ -6,9 +6,14 @@ include_once 'App/model/M_Product.php';
 switch ($action) {
     case 'placeOrder':
         $customerId = $_SESSION['customer']['id'];
+
         $deliveryDate = filter_input(INPUT_POST, 'deliveryDate');
-        $deliveryDate =  new DateTime();
-        $deliveryDate =  $deliveryDate->format('Y-m-d H:i:s');
+
+        if (strtotime($deliveryDate) == time()) {
+            $deliveryDate = DateTime::createFromFormat('Y-m-d', $deliveryDate);
+            $deliveryDate =  $deliveryDate->modify('+2 day');
+            $deliveryDate = $deliveryDate->format('Y-m-d');
+        }
 
         $totalPrice = M_Product::totalPrice();
 
@@ -19,7 +24,7 @@ switch ($action) {
             $shippingCost = 1;
         }
 
-        $orderId = M_Order::addOrder($customerId, $deliveryDate, 3 , $shippingCost);
+        $orderId = M_Order::addOrder($customerId, $deliveryDate, 3, $shippingCost);
 
         foreach ($_SESSION['cart'] as $productId => $qty) {
             $prizeId = 6;

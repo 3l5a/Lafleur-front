@@ -17,6 +17,7 @@ switch ($action) {
         header('Location: index.php?uc=account&action=visit');
         break;
     case 'visit':
+        var_dump(date('Y-m-d H:i:s',time()));
         $idCustomer = $_SESSION['customer']['id'];
         $cartIds = $_SESSION['cart']; // associative array [$idProduct => qty in cart]
 
@@ -30,6 +31,7 @@ switch ($action) {
 
             $cartContent[$id] = $product;
         }
+
         $totalPrice = M_Product::totalPrice();
 
         // shipping cost is a bool

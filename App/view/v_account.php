@@ -40,12 +40,17 @@
                 </p>
             </div>
             <p class="bold free-delivery">La livraison est offerte au dessus de 50€ d'achat</p>
+            <form action="index.php?uc=order&action=placeOrder" method="POST">
             <div>
                 <label for="deliveryDdate"  class="bold"> Date de livraison :</label>
-                <input type="date" name="" id="deliveryDate" min="<?= date('Y-m-d', strtotime('+1 day')) ?>" value="<?= date('Y-m-d', strtotime('+1 day')) ?>">
+                <input type="date" name="deliveryDate" id="" min="<?= date('Y-m-d', strtotime('+1 day')) ?>" value="<?= date('Y-m-d', strtotime('+1 day')) ?>">
             </div>
-            <a href="index.php?uc=order&action=placeOrder" alt="Commander" class="order">Passer commande</a>
-            <?php } else { ?>
+
+            <button type="submit" alt="Commander" class="order">Passer commande</button>
+            </form>
+            <?php 
+                var_dump($deliveryDate = filter_input(INPUT_POST, 'deliveryDate'));
+            } else { ?>
                 <p>Malheureusement nous ne livrons pas chez vous...</p>
             <?php }
         } else { ?>
@@ -115,10 +120,10 @@
                 <h5>Commande n°<?= $formerOrders[$i]['id'] ?> du <?= $date->format('d/m/Y') ?></h5>
                 <h5>Contenu :</h5>
                 <ul><?php
-                   if ($formerOrders[0]['price_product'] < 0) { ?>
-                        <li><?= $formerOrders[0]['name_prize'] ?> (offert) <?php
+                   if ($formerOrders[$i]['price_product'] < 0) { ?>
+                        <li><?= $formerOrders[$i]['name_prize'] ?> (offert) <?php
                     } else { ?>
-                        <li><?= $formerOrders[0]['name_product'] ?> (<?= number_format($formerOrders[$i]['price_product'], 2, ',', '') ?>€) <?php
+                        <li><?= $formerOrders[$i]['name_product'] ?> (<?= number_format($formerOrders[$i]['price_product'], 2, ',', '') ?>€) <?php
                     }
                         }
                     } ?>

@@ -3,11 +3,6 @@
 include_once 'App/model/M_Product.php';
 
 switch ($action) {
-    case '':
-        $colorSelected = null;
-        $roses = array_slice(M_Product::indexSelected($colorSelected, ["7"]), 0, 4);
-        $unitFlowers = array_slice(M_Product::indexSelected($colorSelected, ["6"]), 0,  4);
-        $mothersDays = array_slice(M_Product::indexSelected($colorSelected, ["9"]), 0,  4);
     case 'catalogue':
         $colors = M_Product::findColors();
         $categories = M_Product::findCategories();
@@ -25,6 +20,12 @@ switch ($action) {
 
         $products = M_Product::indexSelected($colorSelected, $categorySelected);
         break;
+    case '':
+        //allow to display 4 items of each category in homepage
+        $colorSelected = null;
+        $roses = array_slice(M_Product::indexSelected($colorSelected, ["7"]), 0, 4);
+        $unitFlowers = array_slice(M_Product::indexSelected($colorSelected, ["6"]), 0,  4);
+        $mothersDays = array_slice(M_Product::indexSelected($colorSelected, ["9"]), 0,  4);
     case 'mothersday':
         $colors = M_Product::findColors();
         $categories = M_Product::findCategories();

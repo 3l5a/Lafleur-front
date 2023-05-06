@@ -49,14 +49,4 @@ class DataAccess
     {
         return DataAccess::getPdo()->query($sql_request);
     }
-
-    /**
-     * write request
-     * @param string $sql_request
-     * @return int
-     */
-    public static function exec(string $sql_request)
-    {
-        return DataAccess::getPdo()->exec($sql_request);
-    }
 }

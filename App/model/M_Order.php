@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * orders requests
+ *
+ * @author Elsa Thiévet
+ */
 class M_Order
 {
 

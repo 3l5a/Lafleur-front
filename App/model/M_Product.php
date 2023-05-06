@@ -1,7 +1,8 @@
 <?php
-
 /**
- * all you need to display one or more products according to category and/or color
+ * products queries
+ *
+ * @author Elsa Thiévet
  */
 class M_Product
 {

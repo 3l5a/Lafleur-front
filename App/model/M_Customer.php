@@ -1,4 +1,9 @@
 <?php
+/**
+ * customer queries
+ *
+ * @author Elsa Thiévet
+ */
 class M_Customer
 {
     /**

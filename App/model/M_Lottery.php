@@ -1,6 +1,10 @@
 <?php
 
-
+/**
+ * prizes requests
+ *
+ * @author Elsa Thiévet
+ */
 class M_Lottery
 {
     public static function getPrizes()
