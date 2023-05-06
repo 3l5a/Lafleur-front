@@ -49,7 +49,6 @@
             <button type="submit" alt="Commander" class="order">Passer commande</button>
             </form>
             <?php 
-                var_dump($deliveryDate = filter_input(INPUT_POST, 'deliveryDate'));
             } else { ?>
                 <p>Malheureusement nous ne livrons pas chez vous...</p>
             <?php }
@@ -96,35 +95,35 @@
                     } else { ?>
                         <li><?= $formerOrders[0]['name_product'] ?> (<?= number_format($formerOrders[0]['price_product'], 2, ',', '') ?> €) <?php
                     }
-                        for ($i = 1; $i < count($formerOrders); $i++) {
-                            if ($formerOrders[$i]['date_customer_order'] === $formerOrders[$i - 1]['date_customer_order']) {
-                                if ($formerOrders[$i]['price_product'] < 0) { ?>
-                                    <li><?= $formerOrders[$i]['name_prize'] ?> (offert) <?php
-                                } else { ?>
-                                    <li><?= $formerOrders[$i]['name_product'] ?> (<?= number_format($formerOrders[$i]['price_product'], 2, ',', '') ?>€) <?php
-                                }
-                    } else { ?>
-                </ul>
-                <?php $date = new DateTime($formerOrders[$i]['delivery_date_customer_order']); ?>
-                <h5>Livraison prévue le :</h5>
-                <ul>
-                    <li><?= $date->format('d/m/Y') ?></li>
-                </ul>
-                <h5>Statut : </h5>
-                <ul>
-                    <li><?= $formerOrders[$i]['name_order_status'] ?></li>
-                </ul>
-            </div>
-            <?php $date = new DateTime($formerOrders[$i]['date_customer_order']); ?>
-            <div class="order-info">
-                <h5>Commande n°<?= $formerOrders[$i]['id'] ?> du <?= $date->format('d/m/Y') ?></h5>
-                <h5>Contenu :</h5>
-                <ul><?php
-                   if ($formerOrders[$i]['price_product'] < 0) { ?>
-                        <li><?= $formerOrders[$i]['name_prize'] ?> (offert) <?php
-                    } else { ?>
-                        <li><?= $formerOrders[$i]['name_product'] ?> (<?= number_format($formerOrders[$i]['price_product'], 2, ',', '') ?>€) <?php
-                    }
+                    for ($i = 1; $i < count($formerOrders); $i++) {
+                        if ($formerOrders[$i]['date_customer_order'] === $formerOrders[$i - 1]['date_customer_order']) {
+                            if ($formerOrders[$i]['price_product'] < 0) { ?>
+                                <li><?= $formerOrders[$i]['name_prize'] ?> (offert) <?php
+                            } else { ?>
+                                <li><?= $formerOrders[$i]['name_product'] ?> (<?= number_format($formerOrders[$i]['price_product'], 2, ',', '') ?>€) <?php
+                            }
+                        } else { ?>
+                            </ul>
+                            <?php $date = new DateTime($formerOrders[$i-1]['delivery_date_customer_order']); ?>
+                            <h5>Livraison prévue le :</h5>
+                            <ul>
+                                <li><?= $date->format('d/m/Y') ?></li>
+                            </ul>
+                            <h5>Statut :</h5>
+                            <ul>
+                                <li><?= $formerOrders[$i]['name_order_status'] ?></li>
+                            </ul>
+                            </div>
+                            <?php $date = new DateTime($formerOrders[$i]['date_customer_order']); ?>
+                            <div class="order-info">
+                            <h5>Commande n°<?= $formerOrders[$i]['id'] ?> du <?= $date->format('d/m/Y') ?></h5>
+                            <h5>Contenu :</h5>
+                            <ul><?php
+                            if ($formerOrders[$i]['price_product'] < 0) { ?>
+                                <li><?= $formerOrders[$i]['name_prize'] ?> (offert) <?php
+                            } else { ?>
+                                <li><?= $formerOrders[$i]['name_product'] ?> (<?= number_format($formerOrders[$i]['price_product'], 2, ',', '') ?>€) <?php
+                            }
                         }
                     } ?>
                 </ul>

@@ -6,14 +6,11 @@ include_once 'App/model/M_Product.php';
 switch ($action) {
     case 'placeOrder':
         $customerId = $_SESSION['customer']['id'];
-
         $deliveryDate = filter_input(INPUT_POST, 'deliveryDate');
 
-        if (strtotime($deliveryDate) == time()) {
-            $deliveryDate = DateTime::createFromFormat('Y-m-d', $deliveryDate);
-            $deliveryDate =  $deliveryDate->modify('+2 day');
-            $deliveryDate = $deliveryDate->format('Y-m-d');
-        }
+        $deliveryDate = DateTime::createFromFormat('Y-m-d', $deliveryDate);
+        $deliveryDate = $deliveryDate->format('Y-m-d');
+
 
         $totalPrice = M_Product::totalPrice();
 

@@ -17,7 +17,6 @@ switch ($action) {
         header('Location: index.php?uc=account&action=visit');
         break;
     case 'visit':
-        var_dump(date('Y-m-d H:i:s',time()));
         $idCustomer = $_SESSION['customer']['id'];
         $cartIds = $_SESSION['cart']; // associative array [$idProduct => qty in cart]
 
