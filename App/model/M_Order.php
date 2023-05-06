@@ -2,32 +2,80 @@
 
 class M_Order
 {
+
+    /**
+     * retrive id of last order by customer
+     *
+     * @param [type] $customer Id
+     * @return int
+     */
+    public static function getLastOrder($customerId)
+    {
+        $req = "SELECT line_customer.customer_order_id FROM line_customer
+                JOIN customer_order ON customer_order.id = line_customer.customer_order_id
+                WHERE customer_order.customer_id = :customerId
+                ORDER BY customer_order.date_customer_order DESC 
+                LIMIT 1";
+        $pdo = DataAccess::getPdo();
+        $stmt = $pdo->prepare($req);
+        $stmt->bindParam(':customerId', $customerId, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+
+    /**
+     * retrive id of won prize and adds it to customer's last order
+     *
+     * @param [type] $prizeId
+     * @return bool
+     */
+    public static function addPrize($prizeId, $orderId)
+    {
+        $req = "INSERT INTO line_customer (customer_order_id, product_id, prize_id, quantity_line_customer)
+                VALUES (:orderId, 12, :prizeId, 1)"; //12 = placeholder for product id, 1 = qty of prize won
+        $pdo = DataAccess::getPdo();
+        $stmt = $pdo->prepare($req);
+        $stmt->bindParam(':orderId', $orderId, PDO::PARAM_INT);
+        $stmt->bindParam(':prizeId', $prizeId, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+
+    /**
+     * retrive id of won prize and adds it to customer's last order
+     *
+     * @param [type] $prizeId
+     * @return bool
+     */
+    public static function decrementPrize($prizeId)
+    {
+        $req = "UPDATE prize 
+                SET quantity_prize = quantity_prize - 1
+                WHERE prize.id = :prizeId";
+        $pdo = DataAccess::getPdo();
+        $stmt = $pdo->prepare($req);
+        $stmt->bindParam(':prizeId', $prizeId, PDO::PARAM_INT);
+
+        return $stmt->execute();
+    }
+
     /**
      * get quantity of product then sets it to quantity - $qty
      *
      * @return bool
      */
-    public static function decrementQty($id, $qty)
+    public static function decrementProduct($id, $qty)
     {
-        //get product quantity
-        $req = "SELECT product.quantity_product FROM product WHERE product.id = :id";
+        $req = "UPDATE product 
+                SET product.quantity_product = quantity_product - :qty 
+                WHERE product.id = :id";
         $pdo = DataAccess::getPdo();
         $stmt = $pdo->prepare($req);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
+        $stmt->bindParam(':qty', $qty, PDO::PARAM_INT);
 
-        $dbQty = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        $newQty = $dbQty['quantity_product'] - $qty;
-
-        $req2 = "UPDATE product SET product.quantity = :newQty WHERE product.id = :id";
-        $pdo = DataAccess::getPdo();
-        $stmt2 = $pdo->prepare($req2);
-        $stmt2->bindParam(':newQty', $newQty, PDO::PARAM_INT);
-        $stmt2->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt2->execute();
-
-        return $stmt2->fetch(PDO::FETCH_ASSOC);
+        return $stmt->execute();
     }
 
     /**

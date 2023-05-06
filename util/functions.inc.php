@@ -76,8 +76,8 @@ function cartCount()
  */
 function removeFromCart($idProduct)
 {
-    $index = array_search($idProduct, $_SESSION['cart']);
-    unset($_SESSION['cart'][$index]);
+    unset($_SESSION['cart'][$idProduct]);
+    header('Location: index.php?uc=account&action=visit');
 }
 
 /**

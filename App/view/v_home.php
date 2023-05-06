@@ -1,5 +1,5 @@
 <main class="home">
-    <div class="slider">
+    <section class="slider">
         <div class="round">
             <div class="circle active"></div>
             <div class="circle "></div>
@@ -21,9 +21,9 @@
                 <a href="index.php?uc=all&action=catalogue" alt="Toutes nos fleurs">VOIR NOS FLEURS</a>
             </div>
         </div>
-    </div>
+    </section>
     <h2>Des fleurs pour chaque occasion</h2>
-    <div class="events">
+    <section class="events">
         <a href="index.php?uc=all&action=thanks">
             <div class="category thanks">
                 <div class="background"></div>
@@ -54,8 +54,8 @@
                 <p>Sentiments</p>
             </div>
         </a>
-    </div>
-    <div class="category roses">
+    </section>
+    <section class="category roses">
         <h2>Les roses</h2>
         <div class="container-category">
             <?php foreach ($roses as $rose) { ?>
@@ -87,8 +87,8 @@
         <a href="index.php?uc=all&action=roses" alt="Catégories roses" class="see-more">
             <p class="next">Voir la suite</p>
         </a>
-    </div>
-    <div class="category unit">
+    </section>
+    <section class="category unit">
         <h2>Nos fleurs à l'unité</h2>
         <div class="container-category">
             <?php foreach ($unitFlowers as $unitFlower) { ?>
@@ -120,8 +120,8 @@
         <a href="index.php?uc=all&action=unit" alt="Catégorie fleurs à l'unité" class="see-more">
             <p>Voir la suite</p>
         </a>
-    </div>
-    <div class="category mothders-day">
+    </section>
+    <section class="category mothders-day">
         <h2>Sélection fête des mères</h2>
         <div class="container-category">
             <?php foreach ($mothersDays as $mothersDay) { ?>
@@ -153,5 +153,5 @@
         <a href="index.php?uc=all&action=mothersday" class="see-more">
             <p>Voir la suite</p>
         </a>
-    </div>
+    </section>
 </main>

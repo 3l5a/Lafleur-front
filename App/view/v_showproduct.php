@@ -9,7 +9,7 @@
             <p><?= $product['description_product'] ?></p>
         </div>
         <?php if ($product['quantity_product'] > 1) { ?>
-            <a href="index.php?uc=all&action=add&id=<?= $product['id'] ?>" class="addToCart">AJOUTER AU PANIER</a>
+            <a href="index.php?uc=product&action=add&id=<?= $product['id'] ?>" class="addToCart">AJOUTER AU PANIER</a>
         <?php } else { ?>
             <a class="addToCart inactive">PRODUIT ÉPUISÉ</a>
         <?php } ?>

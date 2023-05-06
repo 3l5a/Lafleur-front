@@ -30,7 +30,6 @@ switch ($action) {
 
             $cartContent[$id] = $product;
         }
-
         $totalPrice = M_Product::totalPrice();
 
         // shipping cost is a bool

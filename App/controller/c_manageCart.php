@@ -8,7 +8,7 @@ switch ($action) {
         break;
     case 'remove' :
         $productId = filter_input(INPUT_GET, 'id');
-        removeFromCart($productId);
+        removeFromCart(intval($productId));
         break;
     case 'delete':
         unset($_SESSION['cart']);

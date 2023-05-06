@@ -8,20 +8,20 @@
         if(isset($cartContent)) {
         foreach($cartContent as $product) { ?>
             <div class="product-recap">
-                <div class="product">
                     <a href="index.php?uc=product&action=show&id=<?= $product['id'] ?>" alt="Voir <?= $product['name_product'] ?>">
                         <img src="public/assets/<?= $product['image_product'] ?>" alt="<?= $product['name_product'] ?>" class="image-cart">
                     </a>
-                    <div class="qty-price bold">
-                        <p><?= $product['quantity_order_product'] ?> x <?= $product['name_product'] ?></p>
-                        <p><?= number_format($product['price_product'], 2, ',', '') ?>€ l'unité</p>
+                    <div class="qty-price-delete bold">
+                        <div class="qty-price">
+                            <p><?= $product['quantity_order_product'] ?> x <?= $product['name_product'] ?></p>
+                            <p><?= number_format($product['price_product'], 2, ',', '') ?>€ l'unité</p>
+                        </div>
+                        <div class="delete"><a href="index.php?account&action=remove&id=<?= $product['id'] ?>" class="delete"><img src="public/assets/bin.svg" alt="Supprimer le produit"></a></div>
                     </div>
-                </div>
-                <a href="index.php?account&action=remove&id=<?= $product['id'] ?>"><img src="public/assets/bin.svg" alt="Supprimer le produit"></a>
             </div>
             <?php } ?>
             <?php if($deliverable) { ?>
-            <p class="bold big">Récapitulatif</p>
+            <p class="bold big recap-title">Récapitulatif</p>
             <div class="recap bold">
                 <p>Sous-total</p>
                 <p><?= number_format($totalPrice, 2, ',', '') ?>€</p>
@@ -39,7 +39,7 @@
                     echo number_format($totalPrice, 2, ',', '').'€'; ?>
                 </p>
             </div>
-            <p class="bold">La livraison est offerte au dessus de 50€ d'achat</p>
+            <p class="bold free-delivery">La livraison est offerte au dessus de 50€ d'achat</p>
             <div>
                 <label for="deliveryDdate"  class="bold"> Date de livraison :</label>
                 <input type="date" name="" id="deliveryDate" min="<?= date('Y-m-d', strtotime('+1 day')) ?>" value="<?= date('Y-m-d', strtotime('+1 day')) ?>">
@@ -49,7 +49,7 @@
                 <p>Malheureusement nous ne livrons pas chez vous...</p>
             <?php }
         } else { ?>
-        <p>Votre panier est vide</p>
+        <p class="bold emtpy">Votre panier est vide</p>
         <?php } ?>
     </container>
 
@@ -76,11 +76,9 @@
         <h5><a href="index.php?uc=account&action=logOut">Se déconnecter</a></h5>
     </container>
 
-    <!-- orders -->
+    <!-- past orders -->
     <container class="past-orders">
         <h4>Vos commandes</h4>
-        <div class="order">
-        </div>
         <?php
         if (count($formerOrders) > 0) {
             $date = new DateTime($formerOrders[0]['date_customer_order']); ?>

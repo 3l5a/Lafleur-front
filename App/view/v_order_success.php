@@ -6,8 +6,7 @@
         <p>Pour la fête des mères, Lafleur organise un tirage au sort. Et super nouvelle, chaque tirage est gagnant ! Qu’attendez-vous pour jouer ?</p>
         <a href="index.php?uc=lottery&action=play">Participer à la loterie</a>
 
-    <?php } else {
-        var_dump($success); ?>
+    <?php } else { ?>
         <div>Raté</div>
     <?php } ?>
 </main>

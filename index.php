@@ -2,8 +2,8 @@
 
 session_start();
 // unset($_SESSION);
-// unset($_SESSION['cart']);
-var_dump($_SESSION['customer']);
+// var_dump($_SESSION['cart']);
+// var_dump($_SESSION['customer']);
 
 // Pour afficher les erreurs PHP
 error_reporting(E_ALL);
@@ -51,11 +51,12 @@ switch ($uc) {
         break;
     case 'account':
         include 'App/controller/c_account.php';
+        include 'App/controller/c_manageCart.php';
         break;
 
         //orders
     case 'order':
-        include 'App/controller/c_order.php' ;
+        include 'App/controller/c_order.php';
         break;
     case 'lottery':
         include 'App/controller/c_lottery.php';

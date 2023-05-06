@@ -10,7 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lancelot&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="public/reset.css" />
+    <link rel="stylesheet" href="public/common.css" />
     <link rel="stylesheet" href="public/style.css" />
+    <link rel="stylesheet" href="public/card.css" />
 </head>
 
 <body>
@@ -66,11 +68,5 @@
     include 'App/view/v_footer.php';
     ?>
 </body>
-
 <script src="public/main.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-<script src="public/jquery.spritely.js"></script>
-<script src="public/jquery.backgroundPosition.js"></script>
-<script src="public/slot.js"></script>
-
 </html>
