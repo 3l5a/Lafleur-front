@@ -1,3 +1,3 @@
 E-commerce florist website using vanilla CSS, JavaScript & PHP
  
-<a href="https://www.elsa-thievet.com/projets/lafleur">Voir le site</a>
+<a href="https://www.elsa-thievet.com/projets/lafleur">Visit website</a>
